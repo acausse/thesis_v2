@@ -1,0 +1,436 @@
+% -------------------- Packages --------------------
+%  Document Class --------------------
+\documentclass[12pt,a4paper]{report}
+ 
+% -------------------- Language and Encoding --------------------
+\usepackage[utf8]{inputenc}    % Input encoding
+\usepackage[T1]{fontenc}       % Font encoding
+\usepackage[english]{babel}    % Language
+
+%  Typography and Fonts --------------------
+\usepackage{lmodern}           % Improved font rendering
+
+%  Page Layout --------------------
+\usepackage[a4paper, margin=1in]{geometry}  % Page size and margins
+
+%  Colors and Graphics --------------------
+\usepackage{xcolor}            % Custom colors
+\usepackage{graphicx}          % For including images
+
+%  PDF and External Docs --------------------
+\usepackage{pdfpages}          % Insert external PDFs
+\usepackage{afterpage}         % Delayed page commands
+
+%  Title and Section Formatting --------------------
+\usepackage{titlesec}          % Custom section formatting
+\usepackage{titling}           % Advanced title control
+
+%  Hyperlinks --------------------
+% \usepackage[hidelinks]{hyperref} % Clickable links without colored boxes
+\usepackage[draft]{hyperref} % Clickable links without colored boxes
+
+%  Spacing and Paragraphs --------------------
+\usepackage{setspace}          % Optional: control line spacing
+\usepackage{indentfirst}       % Indent first paragraph after section
+\setlength{\parindent}{15pt}   % Paragraph indentation
+\setlength{\parskip}{0.7em}    % Space between paragraphs
+
+%  Section Numbering and Depth --------------------
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
+\setcounter{tocdepth}{4}       % Table of contents depth
+
+%  Custom Section Styles --------------------
+\titleformat{\chapter}[hang]{\normalfont\Huge\bfseries\color{black}}{\thechapter}{2pc}{}
+\titleformat{\section}[hang]{\normalfont\Large\bfseries\color{orange}}{\thesection}{1em}{}
+\titleformat{\subsection}[hang]{\normalfont\large\bfseries\color{teal}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[hang]{\normalfont\normalsize\bfseries\color{gray}}{\thesubsubsection}{1em}{}
+
+%  Abbreviations/Glossaries --------------------
+\usepackage[automake]{glossaries-extra}
+\makeglossaries
+\setabbreviationstyle[acronym]{long-short}
+
+\newcommand{\g}[1]{\gls{#1}}     % Capitalized
+\newcommand{\G}[1]{\Gls{#1}}     % Capitalized
+\newcommand{\gp}[1]{\glspl{#1}}  % Plural
+\newcommand{\Gp}[1]{\Glspl{#1}}  % Capitalized plural
+
+% Simple acronyms
+\newacronym{mtl}{MTL}{medial temporal lobe}
+\newacronym{erp}{ERP}{event-related potential}
+\newacronym{emd}{EMD}{empirical mode decomposition}
+\newacronym{pac}{PAC}{phase-amplitude coupling}
+\newacronym{swr}{SWR}{sharp-wave ripple}
+\newacronym{lfp}{LFP}{local field potential}
+\newacronym{ied}{IED}{interictal epileptiform discharge}
+\newacronym{fmri}{fMRI}{functional magnetic resonance imaging}
+\newacronym{rem}{REM}{rapid eye movement}
+\newacronym{umap}{UMAP}{uniform manifold approximation and projection}
+\newacronym{isomap}{ISOMAP}{isometric mapping}
+% Manage plurals
+\newacronym
+  [plural=fast-frequency activities, shortplural=FFAs]
+  {ffa}{FFA}{fast-frequency activity}
+\newacronym[
+    plural=stereoelectroencephalographies,
+    shortplural=sEEGs
+]{seeg}{sEEG}{stereoelectroencephalography}
+\newacronym[
+    plural=depth electroencephalographies,
+    shortplural=depth EEGs
+]{deeg}{depth EEG}{depth electroencephalography}
+\newacronym[
+    plural=holo-Hilbert spectral analyses,
+    shortplural=HHSAs
+]{hhsa}{HHSA}{holo-Hilbert spectral analysis}
+\newacronym[
+    plural=magnetoencephalographies,
+    shortplural=MEGs
+]{meg}{MEG}{magnetoencephalography}
+\newacronym[
+    plural=electrocorticographies,
+    shortplural=ECoGs
+]{ecog}{ECoG}{electrocorticography}
+
+\glsadd{mtl}
+\glsadd{deeg}
+\glsadd{ffa}
+\glsadd{erp}
+\glsadd{emd}
+\glsadd{pac}
+\glsadd{hhsa}
+\glsadd{swr}
+\glsadd{lfp}
+\glsadd{ied}
+\glsadd{fmri}
+\glsadd{meg}
+\glsadd{ecog}
+\glsadd{umap}
+\glsadd{isomap}
+\glsadd{rem}
+
+% ----------------------------- Begin document -----------------------------
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+
+    {\Huge\bfseries Investigating Neuronal Network Dynamics Supporting Memory in the Human Brain\\}
+    \vspace{2cm}
+
+    \includegraphics[width=0.25\textwidth]{ox_logo.png}
+    \vspace{2cm}
+
+    {\Large Thesis\\}
+    \vspace{1cm}
+
+    {\Large Adrien A. Causse\\}
+    \vspace{0.4cm}
+    {\large New College\\}
+    {\large University of Oxford\\}
+    \vspace{1.5cm}
+
+    {\Large\bfseries Supervisors\\}
+    \vspace{0.2cm}
+    {\large
+        Prof.\ David Dupret\\
+        Prof.\ Timothy Denison
+    }
+    \vspace{1.5cm}
+
+    {\large Trinity Term 2025\\}
+
+    \vfill
+\end{titlepage}
+
+% ------------------ Abstract ------------------
+\chapter*{Abstract} % Just for info for the assessors
+Abstract to write here
+
+% ------------------ TOC ------------------
+\tableofcontents
+
+% ------------------ List of abbreviations ------------------
+\newpage
+\printglossary[type=\acronymtype, title=List of Abbreviations, nonumberlist]
+
+% ------------------ Chapters ------------------
+% ----------------------------------- INTRODUCTION ------------------------------------
+\chapter*{Introduction} % Two to three pages
+
+% ------------------------------------ Chap 1 ------------------------------------ ETHICS, RECORDING METHODS, ORIGIN OF LFPs
+\chapter{Direct Recordings of Brain Activity with Hybrid Electrodes in Humans}
+
+\section{Experimental Rationale and Design}
+\subsection{Motivation for Direct Human Recordings}
+\subsubsection{The Value of \G{deeg} for Systems Neuroscience} % historical milestones
+\subsubsection{Unique Opportunities and Challenges of Human Data} % ethics, disease context
+\subsection{Technical Foundations}
+\subsubsection{The Use of Hybrid Electrodes}
+\subsubsection{Comparisons with Animal and Indirect Recordings in Humans}
+
+\section{Electrodes and Recording Methods}
+\subsection{Overview of Available Techniques}
+\subsubsection{Cortical Grids and \g{ecog}}
+\subsubsection{Intra-Operative Recordings}
+\subsubsection{Behnke-Fried Hybrid Electrodes}
+\subsubsection{DIXI MICRODEEP Hybrid Electrodes} % Deep and lateral tetrodes
+\subsection{Localization of \g{deeg} Contacts}
+\subsubsection{Imaging Pipeline, Segmentation and Coregistration}
+\subsubsection{Hippocampal Subfield Segmentation}
+\subsubsection{Estimating Contact Locations Using Electrode Models}
+\subsubsection{Manual Verification}
+\subsection{The Impact of Referencing Schemes}
+\subsubsection{Monopolar Referencing}
+\subsubsection{Bipolar Referencing}
+\subsubsection{Common Average Referencing}
+\subsection{Relation Between \gp{lfp} and Spiking Activity}
+\subsubsection{The Influence of Contact Type, Distance and Reference}
+\subsubsection{\g{ffa} Is a Proxy of Local Neuronal Firing} % describe how you get it
+
+\section{Physiological Variability Across Conditions}
+\subsection{Sources of Background Neural Activity} % Definition and Detection of \gp{ied} and other interictal entities
+\subsection{Contextual Modulation of Background Neural Activity} % IEDs rate
+\subsubsection{Cognitive Engagement}
+\subsubsection{Sleep Stages}
+\subsubsection{Anatomical and Functional Gradients}
+
+\section{Discussion and Conclusion}
+
+% ------------------------------------ Chap 2 ------------------------------------ BEHAVIOUR
+\chapter{Evaluating Memory and Inference Performance in Humans}
+
+\section{Associative Memory in Humans}
+\subsection{Short-Term and Long-Term Memory}
+\subsection{Inference Tasks in Cognitive Psychology}
+\subsection{The Role of the Hippocampus in Inference Behaviour}
+\subsubsection{Animal Studies}
+\subsubsection{Human Lesion Studies}
+\subsubsection{Indirect Recordings of Brain Electrical Activity in Humans (\g{fmri}, \g{meg})}
+\subsubsection{Direct Recordings of Brain Electrical Activity in Humans}
+
+\section{Investigating Inference using a Social Community Task}
+\subsection{Behavioural Paradigm}
+\subsection{Variants}
+\subsubsection{Simple and Complex Tasks}
+\subsubsection{Scientific Rationale for Population Diversity} % sampling epileptic and healthy subjects
+\subsubsection{Stimulus Types and Controls}
+\subsubsection{Additional Visual Controls}
+
+\section{Quantifying Behavioural Performance}
+\subsection{Participant Demographics}
+\subsection{Performance Metrics}
+\subsubsection{Group-Level Performance}
+\subsubsection{Inter-Individual Variability and Performance Profiles}
+\subsubsection{Across-Group Comparisons} % comapre both populations
+\subsection{What Other Factors Explain Performance?}
+\subsubsection{Demographic and Cognitive Contributors} % effect of years of study, age, in two pop
+\subsubsection{Standardised Cognitive Testing} % neuropsy
+
+\section{Hippocampal Activity Correlates with Task Performance}
+\subsection{Learning-Induced Changes in Visual Response in the Hippocampus}
+\subsubsection{Evoked-Related Potentials in Screening Sessions}
+\subsubsection{\g{ffa} in Screening Sessions}
+\subsection{Hippocampal \g{ffa} Predicts Task Performance}
+\subsubsection{Learning performance}
+\subsubsection{Memory performance}
+\subsubsection{Inference performance}
+
+\section{Discussion and Conclusion}
+\subsection{Inter-Individual Variability in Memory Performance}
+\subsection{The Hippocampus Is Central for Inference Performance}
+\subsection{Limitations and Considerations}
+
+% ------------------------------------ Chap 3 ------------------------------------ SLOW OSCILLATIONS IN THE MTL
+\chapter{Slow Oscillations Organize Neuronal Activity in the \g{mtl}}
+
+\section{Why Study Oscillations in the \g{mtl}?}
+\subsection{Network Implications of Oscillations}
+\subsubsection{Post-Synaptic Potentials}
+\subsubsection{Coordinating Neuronal Activity}
+\subsubsection{"Chunking" Information on a Cycle-by-Cycle Basis}
+\subsection{Conservation of \g{mtl} Structures Across Species}
+\subsubsection{Developmental and Genetical Conservation of the \g{mtl}}
+\subsubsection{Histological Conservation of the \g{mtl}}
+\subsubsection{Anatomical Conservation of the \g{mtl}}
+\subsection{Theta Oscillations in Non-Human Studies}
+\subsubsection{Type I and Type II Theta}
+\subsubsection{The Active Sensing Hypothesis Across Species}
+\subsubsection{Theta Oscillations Across Brain Regions}
+\subsubsection{\g{rem} sleep in Non-Human Studies}
+\subsection{Slow Oscillations in Humans}
+\subsubsection{A Fluid Definition of "Theta" oscillations in Human Literature}
+\subsubsection{Memory Tasks}
+\subsubsection{Virtual and Real-World Navigation}
+\subsubsection{\g{rem} sleep in Human Studies}
+
+\section{Analysing Oscillatory Components Using \g{emd}}
+\subsection{Description of \g{emd}}
+\subsubsection{\g{emd} and ensemble \g{emd}}
+\subsubsection{Masked \g{emd}}
+\subsection{Cycle-by-Cycle Analysis}
+\subsubsection{Detecting Oscillatory Cycles}
+\subsubsection{Oscillatory Bout Detection}
+\subsection{Measuring Amplitude Modulation and Phase Locking}
+\subsubsection{\g{hhsa}}
+\subsubsection{\g{pac} and Phase Randomization}
+\subsubsection{Spike-to-Phase Locking}
+
+\section{Behavioural-State Dependence of Hippocampal 2Hz}
+\subsection{Hippocampal 2Hz in \g{rem} Sleep}
+\subsubsection{Polysomnography and Sleep Scoring}
+\subsubsection{2Hz Power in \g{rem} Sleep}
+\subsubsection{Neuronal Activity Locks to Hippocampal 2Hz in \g{rem} Sleep}
+\subsubsection{Asymmetry of Hippocampal 2Hz in Wake and \g{rem} Sleep}
+\subsection{Hippocampal 2Hz Increases During Task Engagement}
+\subsubsection{Hippocampal 2Hz Power Between Task Stages}
+\subsubsection{Hippocampal 2Hz is Evoked by Stimulus Onset}
+
+\section{2Hz Oscillations Across the \g{mtl}}
+\subsection{Anatomical Gradients of 2Hz Oscillations in the \g{mtl}}
+\subsubsection{Power}
+\subsubsection{Amplitude Modulation}
+\subsubsection{\g{pac}}
+\subsubsection{Coupling of Neuronal Activity to Local Oscillations}
+\subsection{Hippocampal 2Hz Coordinates Activity in the Entire \g{mtl}}
+\subsubsection{Neurons of the \g{mtl} Show 2Hz Rhythmicity}
+\subsubsection{Coupling of \g{ffa} to Hippocampal 2Hz Phase}
+\subsubsection{Coupling of Neuronal Activity to Hippocampal 2Hz Phase}
+
+\section{Discussion and Conclusion}
+\subsection{The Role of 2Hz Oscillations in Human Cognition}
+\subsection{Scaling Hypotheses and Structural Constraints}
+
+% ------------------------------------ Chap 4 ------------------------------------ SINGLE-UNIT ACTIVITY
+\chapter{Characterisation of Single-neuron Activity in the \g{mtl}}
+
+\section{Accessing Neuronal Diversity Using Electrophysiological Properties}
+\subsection{How to Differentiate Neuronal Subtypes Based on Electrophysiological Properties?}
+\subsubsection{Pyramidal Neurons and Interneurons}
+\subsubsection{Pyramidal Neurons Are Diverse}
+\subsubsection{Interneurons Are Diverse}
+\subsection{The Single-Neuron Code}
+\subsubsection{Concepts cells}
+\subsubsection{Memory-Guided Behaviour}
+\subsection{The Populational Code}
+\subsubsection{Cell Assemblies and Coactivity}
+\subsubsection{Attempts to Investigate the Populational Code in Humans}
+\subsubsection{Limits of In-Vivo Recordings In Humans}
+
+\section{Methods}
+\subsection{Spike detection, Unit Isolation and Quality Control}
+\subsubsection{Artefact Detection}
+\subsubsection{Semi-Automated Spike Sorting}
+\subsubsection{Post-Hoc Quality Control}
+\subsection{Extraction of Electrophysiological Features}
+\subsubsection{Waveform Features}
+\subsubsection{Firing Features}
+\subsubsection{Pyramidal-Like and Interneuron-Like Profiles} % validation with cross correlograms
+\subsubsection{Coupling to Oscillations}
+\subsection{Identification of Responsive Units}
+\subsubsection{Peri-Stimulus Time Histograms}
+\subsubsection{Classification Methods}
+
+\section{Properties of Temporal Lobe Neurons}
+\subsection{General Properties Across Regions}
+\subsubsection{Waveform Features}
+\subsubsection{Firing Features}
+\subsection{Controlling for Differences Across Anatomical and Functional Sites} % Higher in Affected Tissue
+\subsubsection{Baseline Firing Rate} % affected VS unaffected zones
+\subsubsection{\gp{ied} and Fast-Ripples}
+\subsection{Coupling to Slow Oscillations Differentiates Two Neuronal Populations}
+\subsubsection{Baseline Properties}
+\subsubsection{Evoked 2Hz}
+\subsubsection{Engagement in \gp{swr}} % This is still quite hypothetical 
+
+\section{Single-Neuron Activity in Relation to The Inference Task}
+\subsection{Response Profiles to Visual Cues Across Regions}
+\subsubsection{Unspecific Responses} % Better describe HPC reponse profiles
+\subsubsection{Specific Responses} % Concept cells and fusiform gyrus cells
+\subsubsection{Reponse Delays} % Especially useful to characterize FG cells which may lock to different parts of the ERPs
+\subsection{Can \g{mtl} Single-Neuron Activity Inform Behaviour?}
+\subsubsection{Representation Similarity Analyses} % Pre-screening VS Post-Screening 
+\subsubsection{Predicting Learning and Test Performance using Single-Neuron Activity}
+
+\section{Discussion and Conclusion}
+\subsection{Neuronal Sub-Populations}
+\subsection{Challenges and Future Directions}
+
+% ----------------------------------- Chap 5 ------------------------------------ SHARP-WAVE RIPPLES
+\chapter{Hippocampal \gp{swr} and Reactivation in Humans}
+\section{A Brief Introduction to \gp{swr}}
+\subsection{\gp{swr} in Non-Human Studies}
+\subsubsection{\gp{swr} Physiology}
+\subsubsection{Downstream Readers}
+\subsubsection{The Complex Relation Between Reactivation and \gp{swr}}
+\subsection{\gp{swr} and Reactivation in Human Studies}
+\subsubsection{A Fluid Definition of \gp{swr} in Human Literature}
+\subsubsection{Comparison With Rodent Studies}
+\subsubsection{Reactivation in Humans}
+
+\section{Detection and Definition of \gp{swr}}
+\subsection{Initial \gp{swr} detection}
+\subsubsection{Selection of Contacts} % Reference contact in the white matter and contacts in CA1/SUB/PRESUB
+\subsubsection{Ripple Band Filtering and Threshold Crossing}
+\subsubsection{Exclusion of \gp{ied}}
+\subsection{Validation Step}
+\subsubsection{Number of Ripple Cycles}
+\subsubsection{\g{umap} and \g{isomap}}
+
+\section{Description of \gp{swr} Basic Properties}
+\subsection{Basic Internal Properties}
+\subsubsection{Frequency and Amplitude Gradients}
+\subsubsection{Micro-Macro Correspondence} % Using macro sharp wave to infer tetrode position 
+\subsection{Behavioural State Dependence}
+\subsubsection{Slow-Wave Sleep} % Comparison of IEDs and SWRs / between different slow wave sleep stages
+\subsubsection{Rest Periods in Task}
+
+\section{Reactivation and \gp{swr}}
+\subsection{Coordination of Brain-Wide Activation Patterns During \gp{swr}}
+\subsubsection{Hierarchy of FFA During \gp{swr}}
+\subsubsection{Reactivation of Brain-Wide FFA in \gp{swr}} % 2Hz VS 6Hz / Task
+\subsubsection{Reactivation of Brain-Wide FFA without \gp{swr}}
+\subsection{Coordination of Neuronal Activity During \gp{swr}}
+\subsubsection{\g{mtl} Neuronal Activity During \gp{swr}}
+\subsubsection{Reactivation of Neuronal Activity in \gp{swr}}
+\subsubsection{Reactivation of Neuronal Activity without \gp{swr}}
+
+\section{Discussion}
+\subsection{Similarities and Differences With Rodent \gp{swr}}
+\subsection{Reactivation and Formation of Long-term Memory}
+\section{Conclusion}
+
+% ----------------------------------- DISCUSSION, CONCLUSION, PERSPECTIVES ------------------------------------
+\chapter{Discussion}
+
+\section{Integration Across Chapters}
+
+\section{Key Contributions to Neuroscience}
+\subsection{Design and Implementation of a Novel Inference Task in Humans}
+\subsection{Homology Between Human 2Hz and Rodent Theta Oscillations}
+\subsection{Human Neuronal Populations Have Diverse Electrophysiological Properties In-Vivo}
+\subsection{Conservation of \gp{swr} Properties Across Species}
+
+\section{Methodological Strengths and Limitations}
+\subsection{Strengths}
+\subsubsection{Ecological Validity and Multisite Data Acquisition} % Diverse Socio-Economical Backgrounds Represented, Cohort with Heterogeneous Etiologies
+\subsubsection{Multi-Scale Recordings and Analytical Approaches}
+\subsubsection{Data-Driven Signal Characterization}
+\subsubsection{Single-Units are Likely Single-Neurons}
+
+\subsection{Limitations}
+\subsection{Controlling for Inter-Subject Variability in Performance} % Participants Suffer From Cognitive Deficits
+\subsection{Limitations in Defining Physiological Baseline Activity} % I mean "unaffected" regions are likely not
+\subsection{Subregion-Specific and Variable Brain Coverage Across Participants}
+\subsection{The Relationship Between \g{ffa} and Local Neuronal Activity Remains Obscure} 
+\subsubsection{Why Did We Never Refer to "Gamma" Oscillations?} % Locality
+\subsubsection{How Many Neurons Do Macro-Contacts Record From?}
+
+\chapter{Conclusion and Perspectives}
+\section{Open Questions and Future Directions}
+\section{Potential Applications}
+
+\end{document}

@@ -1,0 +1,26 @@
+# Ignore LaTeX intermediate files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+
+# Ignore temporary files
+*.tmp
+*.bak
+
+# Ignore generated PDF (optional — if you don't want to track the final PDF)
+# *.pdf
+
+# VS Code settings (optional, user-specific)
+.vscode/
