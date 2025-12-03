@@ -39,7 +39,6 @@
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
-\setcounter{tocdepth}{4}       % Table of contents depth
 
 %  Custom Section Styles --------------------
 \definecolor{oxfordblue}{RGB}{63,62,136}
@@ -48,22 +47,23 @@
 \titleformat{\chapter}[hang]{\normalfont\Huge\bfseries\color{black}}{\thechapter}{2pc}{}
 \titleformat{\section}[hang]{\normalfont\Large\bfseries\color{oxfordblue}}{\thesection}{1em}{}
 \titleformat{\subsection}[hang]{\normalfont\large\bfseries\color{lightblue}}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}[hang]{\normalfont\normalsize\bfseries\color{gray}}{\thesubsubsection}{1em}{}
+\titleformat{\subsubsection}[hang]{\normalfont\normalsize\bfseries\color{black}}{\thesubsubsection}{1em}{}
 
 \titleclass{\subsubsubsection}{straight}[\subsubsection]
 \newcounter{subsubsubsection}[subsubsection]
 \renewcommand\thesubsubsubsection{\thesubsubsection.\roman{subsubsubsection}}
-\titleformat{\subsubsubsection}
-  {\normalfont\normalsize\bfseries}   % format: normal size, bold
-  {\thesubsubsubsection}              % label (the number)
-  {1em}                               % separation between number and title
-  {}                                  % before-code (empty)
+\makeatletter
+\def\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries\color{gray}}}
+\def\toclevel@subsubsubsection{4}
+\def\l@subsubsubsection#1#2{}
+\makeatother
 \titlespacing*{\subsubsubsection}
-  {0pt}                               % left margin
-  {2.5ex plus 1ex minus .2ex}         % before skip (vertical space above)
-  {1ex}                               % after skip (vertical space below)
-\setcounter{secnumdepth}{4}   % allow numbering down to new level
-\setcounter{tocdepth}{4}      % include it in the TOC
+  {0pt}{2.5ex plus 1ex minus .2ex}{1ex}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
 
 %  Abbreviations/Glossaries --------------------
 \usepackage[automake]{glossaries-extra}
@@ -76,23 +76,31 @@
 \newcommand{\Gp}[1]{\Glspl{#1}}  % Capitalized plural
 
 % Simple acronyms {acronym}{short}{long}
+\newacronym{sws}{SWS}{slow-wave sleep}
+\newacronym{rem}{REM}{rapid eye movement}
 \newacronym{mtl}{MTL}{medial temporal lobe}
-\newacronym{erp}{ERP}{event-related potential}
 \newacronym{emd}{EMD}{empirical mode decomposition}
 \newacronym{tmemd}{tmEMD}{tailored masked EMD}
 \newacronym{pac}{PAC}{phase-amplitude coupling}
+\newacronym{ppc}{PPC}{pairwise-phase consistency}
 \newacronym{swr}{SWR}{sharp-wave ripple}
-\newacronym{lfp}{LFP}{local field potential}
-\newacronym{ied}{IED}{interictal epileptiform discharge}
 \newacronym{fmri}{fMRI}{functional magnetic resonance imaging}
-\newacronym{rem}{REM}{rapid eye movement}
 \newacronym{umap}{UMAP}{uniform manifold approximation and projection}
 \newacronym{isomap}{ISOMAP}{isometric mapping}
 
 % Manage plurals
-\newacronym
-  [plural=fast-frequency activities, shortplural=FFAs]
-  {ffa}{FFA}{fast-frequency activity}
+\newacronym[
+    plural=event-related potentials,
+    shortplural=ERPs
+]{erp}{ERP}{event-related potential}
+\newacronym[
+    plural=local field potentials,
+    shortplural=LFPs
+]{lfp}{LFP}{local field potential}
+\newacronym[
+    plural=interictal epileptiform discharges,
+    shortplural=IEDs
+]{ied}{IED}{interictal epileptiform discharge}
 \newacronym[
     plural=stereoelectroencephalographies,
     shortplural=sEEGs
@@ -115,23 +123,21 @@
 ]{ecog}{ECoG}{electrocorticography}
 
 
+\glsadd{rem}
+\glsadd{sws}
 \glsadd{mtl}
 \glsadd{deeg}
-\glsadd{ffa}
-\glsadd{erp}
 \glsadd{emd}
 \glsadd{tmemd}
 \glsadd{pac}
+\glsadd{ppc}
 \glsadd{hhsa}
 \glsadd{swr}
-\glsadd{lfp}
-\glsadd{ied}
 \glsadd{fmri}
 \glsadd{meg}
 \glsadd{ecog}
 \glsadd{umap}
 \glsadd{isomap}
-\glsadd{rem}
 
 % ----------------------------- Begin document -----------------------------
 \begin{document}
@@ -169,7 +175,7 @@
 \end{titlepage}
 
 % ------------------ Abstract ------------------
-\chapter*{Abstract} % Just for info for the assessors
+\chapter*{Abstract}
 Abstract to write here
 
 % ------------------ TOC ------------------
@@ -179,14 +185,23 @@ Abstract to write here
 \newpage
 \printglossary[type=\acronymtype, title=List of Abbreviations, nonumberlist]
 
-% ------------------ Chapters ------------------
-% ----------------------------------- INTRODUCTION ------------------------------------
-\chapter*{Introduction} % Two to three pages
-\section*{Theta oscillations in animal models}
+% --------------------------------------------------------------------------------
+% --------------------------------- INTRODUCTION --------------------------------- INTRO: (PRELIMINARY)
+% --------------------------------------------------------------------------------
+\chapter*{Introduction}
+\section*{Theta oscillations in mammals}
 \subsection*{Rodents}
 \subsubsection*{Memory}
 
+\section*{What about theta oscillations in humans?}
+
+\section*{Direct recording of hippocampal activity using \g{deeg}}
+Some history of \g{deeg}, methodological considerations and differences between electrode types. Then describe our setup, and how to identify electrode position.
+
+
+% --------------------------------------------------------------------------------
 % ------------------------------------ Chap 1 ------------------------------------ CHAP 1: Behaviour (PRELIMINARY)
+% --------------------------------------------------------------------------------
 \chapter{Evaluating Memory in Humans}
 
 \section{Associative Memory in Humans}
@@ -221,53 +236,154 @@ Abstract to write here
 \subsection{The Hippocampus Is Central for Inference Performance}
 \subsection{Limitations and Considerations}
 
-% ------------------------------------ Chap 2 ------------------------------------ CHAP 2: 2-Hz 
+% --------------------------------------------------------------------------------
+% ------------------------------------ Chap 2 ------------------------------------ CHAP 2: ONLINE
+% --------------------------------------------------------------------------------
 \chapter{Neural activity in the online human hippocampus is paced by a 2-Hz rhythm}
 
+% --------------- Section I: 2-Hz in task
 \section{Hippocampal 2-Hz tracks mnemonic engagement}
-\subsection{Decomposition of the human hippocampal \g{lfp}}
 
-\subsubsection{Prominent 2-Hz bursts structure hippocampal \g{lfp}} % Mainly a methods section to introduce EMD, bursts, and basic oscillatory analyses
-\subsubsubsection{Using \gls{tmemd} to detect slow oscillations}
+% ---------- Subsection 1: Detecting 2-Hz
+\subsection{Prominent 2-Hz bursts structure hippocampal \glspl{lfp}}
+\subsubsection{Using \gls{tmemd} to detect slow oscillations}
 Description of the usual EMD. Why it fails when not optimised especially in the context of important inter-subject variaiblity. Then tailored masked EMD with optimisation of consistency and mode mixing.
 IMF PSDs across contacts => frequency range of the detected oscillations. 
 Here also present wavelet spectrograms so the reader can understand how these two methods compare.
 How EMD captures non-linearities in the signal (phase-frequency plots) => hippocampal 2-Hz is particularly non-linear.
 
-\subsubsubsection{Hippocampal 2-Hz oscillations are transient}
+\subsubsection{Hippocampal 2-Hz oscillations are transient}
 Detection of IMF cycles. Detection of discrete oscillatory bursts.
 Show multiple examples of 2-Hz bursts across contacts and subjects, particularly in contacts clear from IEDs.
 Quantification of bursts duration.
 
-\subsubsubsection{Local referencing reduces detection of slow oscillations}
+\subsubsection{Local referencing reduces detection of slow oscillations}
 Local referencing on micro and bipolar referencing on macro
 => This is why we will be using CAR throughout the manuscript
 
-\subsubsubsection{Slow-oscillation amplitude and \g{ied} rate}
-Detection of IEDs (methods). IEDs are transient, non-oscillatory events. IEDs rate increases at rest. 1- and 2-Hz oscilltaions are more prominent in contacts clear from IEDs. 
+\subsubsection{Slow-oscillation amplitude and \glspl{ied} rate}
+Detection of IEDs (methods). IEDs are transient, non-oscillatory events. IEDs rate increases at rest. 1- and 2-Hz oscillations are more prominent in contacts clear from IEDs. 
 
-\subsubsubsection{Phase reversal of hippocampal 2-Hz oscillations}
+\subsubsection{Phase reversal of hippocampal 2-Hz oscillations}
 Echo to the introduction where we will have presented how the dipole is structured between layers, in humans and rodents. Show maybe one laminar recording from rodents. Then show phase reversal with cycle-triggered average of LFPs.
 
-\subsubsection{Hippocampal 2-Hz is evoked in the memory task}
-\subsubsubsection{Hippocampal 2-Hz power increase with task engagement}
-Methods: one-over-f fitting. Results: Example contact; estimation plots with various controls; linear mixed-effects models. This is all using contacts free of interictal discharges (reader will unders why because we explained in the previous subsection).
+% ---------- Subsection 2: 2-Hz in memory task
+\subsection{Hippocampal 2-Hz is selectively evoked in the memory task}
+\subsubsection{Hippocampal 2-Hz power increase with task engagement}
+Methods: one-over-f fitting. Results: Example contact; estimation plots with various controls; linear mixed-effects models. This is all using contacts free of interictal discharges (reader will unders why because we explained in the previous subsection). Burst duration is also higher in learning and recalling.
 
-\subsubsubsection{Hippocampal 2-Hz bursts are evoked by mnemonic cues}
-ERPs changes throughout the task. Evoked 1-, 2- and 6-Hz amplitudes relate to mnemonic engagement. Correlation between evoked ERPs deflection and 2-Hz ampltitude. 
+\subsubsection{Hippocampal 2-Hz bursts are evoked by mnemonic cues}
+\subsubsubsection{\glspl{erp} are modulated by mnemonic engagement}
+ERPs change throughout the task in the hippocampus.
 
-\section{Hippocampal 2-Hz organizes local neuronal activity}
-\subsection{}
+\subsubsubsection{Evoked oscillations follow \glspl{erp} deflection}
+Evoked 1-, 2- and 6-Hz amplitudes relate to mnemonic engagement. Correlation between evoked ERPs deflection and 2-Hz ampltitude. 
 
-\section{Hippocampal 2-Hz synchronizes neuronal activity in the \g{mtl}}
-\subsection{}
+\subsubsection{Hippocampal 2-Hz oscillations are not evoked by motor activity}
+Methods: Stepping sessions. Results: three example contacts (PSDs) with clear 2-Hz in learning but not during stepping. Statistics on these three subjects.
+
+Note to myself: I could as well add a small control here, using viewing and post-viewing sessions when the participants hit the space bar (second image). Paired analysis by comparing the evoked amplitude after the first (no motor activity) and the second (motor activity) image seen in a row. It may be confounded by the short term memory effect but we dont expect this to elicit a massive 2-Hz.
+
+% --------------- Section II: 2-Hz organizes neuronal and gamma activity in the HPC
+\section{Hippocampal neuronal activity is preferentially modulated at 2-Hz}
+
+% ---------- Subsection 1: Hippocampal neurons
+\subsection{Hippocampal neurons are paced at 2-Hz}
+\subsubsection{Basic firing properties of hippocampal neurons reveal 2-Hz rhythmicity}
+Methods: spike sorting and quality control. Results : firing rate distributions show that slow firing neurons constituted the biggest part of our dataset. Waveform classification: mainly broad spikes. So this looks more like pyramidal neurons. Autocorrelograms at 2-Hz. Inter-spike intervals at 500 ms.
+
+\subsubsection{Hippocampal neurons prefer 2-Hz oscillations}
+Methods: \g{ppc} and phase randomization. Results: cycle-triggered average of population rate to illustrate co-modulation at 2-Hz. Example spike-phase distribution reveals preference at 2-Hz. Quantification of spike-phase coupling using PPC.
+
+% ---------- Subsection 2: Hippocampal gamma
+\subsection{Hippocampal gamma oscillations are preferentially modulated at 2-Hz}
+\subsubsection{Gamma activity correlates with spiking activity}
+Methods: Detection of gamma activity (60-160 Hz). Results: Illustration of the correlation (CAR and bipolar referencing). Correlation with local VS distal gamma. 
+
+\subsubsection{Hippocampal gamma activity is preferentially coupled to 2-Hz phase}
+Methods: \g{pac} with the modulation index and phase randomization. Results: cycle-triggered average of gamma activity to illustrate co-modulation at 2-Hz (with spikes). Example gamma-phase distribution reveals preference at 2-Hz. Quantification of phase-amplitude coupling using PAC. Control with leave one recording day out shows that the effect is not driven by one recording day. Gamma from the anterior and posterior hippocampi prefer 2-Hz (no gradient). 
+
+\subsubsection{Holo-Hilbert amplitude modulation analysis confirms prevailing 2-Hz hippocampal modulation of gamma activity}
+Methods: \g{hhsa} with illustration. Results: 2-Hz modulation prevails in the human hippocampus. 7-Hz oscillations dominated the mouse hippocampus.
+
+% --------------- Section III: 2-Hz organizes neuronal and gamma activity in the MTL
+\section{Hippocampal 2-Hz synchronizes neuronal activity across \g{mtl} regions}
+
+% ---------- Subsection 1: MTL neurons
+\subsection{2-Hz oscillations are preferentially observed in the \g{mtl}}
+\subsubsection{2-Hz power dominates in the \g{mtl} and particularly in the hippocampus}
+Cycle-triggered average of LFPs show that 2-Hz oscillations propagate in the MTL. PSDs across the MTL and non-MTL contacts free of IEDs. 2-Hz vs 6-Hz power ratio.
+
+\subsubsection{Prominent 6-8Hz oscillations in the non-MTL were detected using \g{tmemd}}
+IMF PSDs in the MTL and non-MTL with example of detected 6-8-Hz bursts in the non-MTL.
+
+\subsubsection{2-Hz oscillations are not directly evoked by mnemonic cues outside the hippocampus}
+\subsubsubsection{\glspl{erp} deflections in \g{mtl} and non-MTL regions}
+ERPs become bigger with familiarity only in the hippocampus.
+
+\subsubsubsection{\glspl{erp} deflection does not correlate with evoked 2-Hz bursts outside the hippocampus}
+Measure evoked 1-, 2- and 6-Hz in other MTL and non-MTL regions. The measure of ERP deflections is adjusted to each region to match visual input. Correlation between ERP deflection and evoked 1-, 2- 6-Hz oscillations.
+
+% ---------- Subsection 2: MTL gamma
+\subsection{\g{mtl} neurons are paced at 2-Hz}
+\subsubsection{Basic firing properties of \g{mtl} neurons reveal 2-Hz rhythmicity}
+Results : Autocorrelograms at 2-Hz. Inter-spike intervals at 500 ms in the MTL. Example neuron in the non-MTL to show we can easily find 6-Hz rhythmicity in the non-MTL.
+
+\subsubsection{\g{mtl} neurons prefer 2-Hz oscillations in the hippocampus}
+Results: cycle-triggered average of population rate in the EC and HPC to illustrate co-modulation at 2-Hz in these two example structures. Example spike-phase distribution reveals preference at 2-Hz of EC neurons. Quantification of spike-phase coupling using PPC in the MTL. Linear mixed-effects models showing that MTL gamma is better moulated at 2-Hz than non-MTL gamma.
+
+\subsection{Hippocampal 2-Hz synchronizes \g{mtl} gamma oscillations}
+Methods: distal PAC. Results: cycle-triggered average of gamma activity in the MTL. Illustration of phase-amplitude coupling across the MTL. \g{mtl} gamma activity is preferentially coupled to hippocampal 2-Hz phase = quantification of MTL preference for 2-Hz oscillations. Phase synchronization is higher during learning and recalling than viewing sessions.
+
+% --------------------------------------------------------------------------------
+% ------------------------------------ Chap 3 ------------------------------------ CHAP 3: OFFLINE
+% --------------------------------------------------------------------------------
+\chapter{Neural activity in the offline human hippocampus}
+
+% --------------- Section I: Hippocampal basic physiology across sleep stages
+\section{Hippocampal physiology across sleep stages}
+\subsection{Hippocampal 2-Hz features \g{rem} sleep but not \g{sws}}
+Methods: describe polysmonography. Example of 2-Hz bursts. 2-Hz power across sleep stages. Maybe: propagation of 2-Hz oscillations in the rest of the MTL (hypothesis of the ponto-geniculo oscillations PGO)? 
+
+\subsection{Hippocampal ripples feature \g{sws} and rest sessions}
+\subsubsection{Detection of hippocampal ripples}
+Methods: two-step algorithm used to detect ripples. Show the templates, and the quality control used to identify reliable ripples without manual intervention.
+
+\subsubsection{Basic properties of the ripples}
+Show raw examples as well as ripple-triggered averages of LFPs and spectrograms. Distribution of ripple frequency centers around 70 Hz. Ripples ride on a sharp-wave. Ripples can be detected on the local tetrodes as well. 
+
+\subsubsection{Ripples properties across sleep stages}
+Ripple rate is higher in SWS and N1 than wake and REM. Ripples detected in rest are comparable to N1. Ripples basic properties are stable between pre- and post-learning rests.
+
+\subsubsection{Hippocampal neurons are modulated by ripples}
+Trigger average (and quantification!) of the modulation of hippocampal single neurons around sharp wave ripples. Single examples and summary heatmap. 
+
+\subsubsection{Ripples propate to the \g{mtl}}
+Ripple-triggered averages of the LFPs and ripple band in other regions (MTL and non-MTL). The propagation is more consistent in the MTL than the non-MTL. 
+
+% --------------- Section II: Coactivity motifs in 2-Hz bursts reactivate in post-learning hippocampal ripples
+\section{Neuronal coactivity motifs in 2-Hz bursts reactivate in post-learning hippocampal ripples}
+\subsection{Measuring reactivation using neuronal coactivity motifs}
+\subsubsection{2-Hz bursts coactivity motifs reactivate in post-learning ripples}
+Methods: building coactivity matrices and measuring reactivation with MTL single-neurons. In-bursts vs out-of-bursts. 1-, 2- vs 6-Hz bursts (exclusion).
+
+\subsubsection{Reactivaiton is relevant for behavioural performance}
+Learning but not viewing coactivity motifs reactivate. All controls related to learning vs viewing (firing rate, shuffled cell ID, out-of-ripples, single subjects). Best better reactivate than worst recalled associations. 
+
+\subsection{Measuring reactivation using gamma coactivity motifs}
+\subsubsection{Gamma coactivity motifs are physiologically meaningful measures}
+ Previous figure S18: shuffling contact IDs breaks the matrices. Intra-regional coactivity is higher than inter-regional coactivity. Correlation with 2-Hz phase amplitude coupling matrices (with illustration). Idem with ripple coactivity.
+
+\subsubsection{Gamma coactivity motifs are rigid}
+All negative on gamma coactivity, using the exact same analytical framework as with single-neurons. The aim here is to report this negative result, and echo the work done with gamma correlations in the visual field (other lab).
 
 
-\subsection{}
-\subsubsection{}
 
-
-% ----------------------------------- DISCUSSION, CONCLUSION, PERSPECTIVES ------------------------------------
+% --------------------------------------------------------------------------------
+% --------------------------------- DISCUSSION -----------------------------------
+% --------------------------------------------------------------------------------
 \chapter{Discussion}
+
+
 
 \end{document}
