@@ -121,7 +121,14 @@
     plural=electrocorticographies,
     shortplural=ECoGs
 ]{ecog}{ECoG}{electrocorticography}
-
+\newacronym[
+    plural=linear mixed-effects models,
+    shortplural=LMEMs
+]{lmem}{LMEM}{linear mixed-effects model}
+\newacronym[
+    plural=generalized linear models,
+    shortplural=GLMs
+]{glm}{GLM}{generalized linear model}
 
 \glsadd{rem}
 \glsadd{sws}
@@ -138,6 +145,8 @@
 \glsadd{ecog}
 \glsadd{umap}
 \glsadd{isomap}
+\glsadd{lmem}
+\glsadd{glm}
 
 % ----------------------------- Begin document -----------------------------
 \begin{document}
@@ -186,60 +195,76 @@ Abstract to write here
 \printglossary[type=\acronymtype, title=List of Abbreviations, nonumberlist]
 
 % --------------------------------------------------------------------------------
-% --------------------------------- INTRODUCTION --------------------------------- INTRO: (PRELIMINARY)
+% --------------------------------- INTRO (chap1) -------------------------------- INTRO (CHAP 1): (PRELIMINARY)
 % --------------------------------------------------------------------------------
-\chapter*{Introduction}
-\section*{Theta oscillations in mammals}
-\subsection*{Rodents}
-\subsubsection*{Memory}
+\chapter{Introduction}
+\section{Theta oscillations in mammals}
+\subsection{Historical characterizations of theta oscillations across mammals}
 
-\section*{What about theta oscillations in humans?}
+\subsection{Rodents}
+\subsubsection{Memory}
 
-\section*{Direct recording of hippocampal activity using \g{deeg}}
-Some history of \g{deeg}, methodological considerations and differences between electrode types. Then describe our setup, and how to identify electrode position.
+\section{What about theta oscillations in humans?}
+Direct recording of hippocampal activity using \g{deeg}. History. Methodological considerations and differences between electrode types. There is a gap in knowledge.
 
-
-% --------------------------------------------------------------------------------
-% ------------------------------------ Chap 1 ------------------------------------ CHAP 1: Behaviour (PRELIMINARY)
-% --------------------------------------------------------------------------------
-\chapter{Evaluating Memory in Humans}
-
-\section{Associative Memory in Humans}
-\subsection{Short-Term and Long-Term Memory}
-\subsection{Inference Tasks in Cognitive Psychology}
-\subsection{The Role of the Hippocampus in Inference Behaviour}
-\subsubsection{Animal Studies}
-\subsubsection{Human Lesion Studies}
-\subsubsection{Indirect Recordings of Brain Electrical Activity in Humans (\g{fmri}, \g{meg})}
-\subsubsection{Direct Recordings of Brain Electrical Activity in Humans}
-
-\section{Investigating Inference using a Social Community Task}
-\subsection{Behavioural Paradigm}
-\subsection{Variants}
-\subsubsection{Simple and Complex Tasks}
-\subsubsection{Scientific Rationale for Population Diversity} % sampling epileptic and healthy subjects
-\subsubsection{Stimulus Types and Controls}
-\subsubsection{Additional Visual Controls}
-
-\section{Quantifying Behavioural Performance}
-\subsection{Participant Demographics}
-\subsection{Performance Metrics}
-\subsubsection{Group-Level Performance}
-\subsubsection{Inter-Individual Variability and Performance Profiles}
-\subsubsection{Across-Group Comparisons} % compare both populations
-\subsection{What Other Factors Explain Performance?}
-\subsubsection{Demographic and Cognitive Contributors} % effect of years of study, age, in two pop
-\subsubsection{Standardised Cognitive Testing} % neuropsy
-
-\section{Discussion and Conclusion}
-\subsection{Inter-Individual Variability in Memory Performance}
-\subsection{The Hippocampus Is Central for Inference Performance}
-\subsection{Limitations and Considerations}
+\section{Hypotheses and aims of this work}
 
 % --------------------------------------------------------------------------------
-% ------------------------------------ Chap 2 ------------------------------------ CHAP 2: ONLINE
+% ------------------------------------ Chap 2 ------------------------------------ CHAP 2: Behaviour (PRELIMINARY)
+% --------------------------------------------------------------------------------
+\chapter{Assessing associative memory in human participants}
+
+\section{Conceptual introduction} % it could as well be placed in the general introduction, but I rather like it here so the focus of the thesis is clearly physiology?
+Why behaviour matters for interpreting hippocampal physiology?
+
+\subsection{Inference as an extension of associative memory}
+\subsubsection{Definition of associative memory and inference}
+\subsubsection{Conservation across species}
+\subsubsection{Two-stages model: short-term and long-term memory}
+\subsubsection{Rodent paradigms}
+\subsubsection{Human paradigms}
+
+\subsection{The role of the hippocampal network in associative memory}
+Keep in mind the framework of the thesis which differentiates short-term and long-term memory. And HPC vs MTL for human studies.
+\subsubsection{Animal studies}
+\subsubsection{Human lesion studies}
+\subsubsection{Indirect recordings of brain electrical activity in humans (\g{fmri}, \g{meg})}
+\subsubsection{Direct recordings of brain electrical activity in humans}
+
+\section{Investigating associative memory in humans using a social community task}
+\subsection{Rationale and behavioural paradigm}
+\subsection{Variants and controls}
+\subsubsection{Simple and complex tasks}
+\subsubsection{Scientific rationale for population diversity} % sampling epileptic and healthy subjects
+\subsubsection{Stimulus types and controls}
+\subsubsection{Additional visual controls}
+
+\section{Quantifying behavioural performance}
+\subsection{Participant demographics}
+\subsection{Performance metrics}
+\subsubsection{Group-level performance}
+\subsubsection{Inter-individual variability and performance profiles}
+\subsubsection{Across-group comparisons} % compare both populations
+\subsection{Possible confounds and their resolution}
+\subsubsection{Demographic and cognitive contributors} % effect of years of study, age, in two pop
+\subsubsection{Standardised cognitive testing} % neuropsy
+
+\section{Summary: why this behavioural context justifies a neural two-stage memory investigation}
+Transition to Chapter 3: behaviour => neural recordings 
+
+% --------------------------------------------------------------------------------
+% ------------------------------------ Chap 3 ------------------------------------ CHAP 3: ONLINE
 % --------------------------------------------------------------------------------
 \chapter{Neural activity in the online human hippocampus is paced by a 2-Hz rhythm}
+
+% --------------- Conceptual introduction
+\section*{Conceptual introduction}
+\subsection*{Why search for a human analogue of rodent theta?}
+Rodent theta: pacing learning, spatial navigation, and ensemble formation. Human low-frequency variability and the open question
+\subsection*{Hypothesis}
+Human memory is organized by a slower “theta-like” rhythm. This rhythm should: appear in active states, structure spikes and gamma, synchronize MTL regions, be modulated by mnemonic engagement.
+\subsection*{Analytical overview}
+Oscillation decomposition (concept). Burst detection (concept). Spike-phase and gamma-phase coupling local and distal (concept). ERP-locked analyses. Point to appendices for methodological details
 
 % --------------- Section I: 2-Hz in task
 \section{Hippocampal 2-Hz tracks mnemonic engagement}
@@ -257,20 +282,22 @@ Detection of IMF cycles. Detection of discrete oscillatory bursts.
 Show multiple examples of 2-Hz bursts across contacts and subjects, particularly in contacts clear from IEDs.
 Quantification of bursts duration.
 
-\subsubsection{Local referencing reduces detection of slow oscillations}
+\subsubsection{Validation of 2-Hz oscillations}
+
+\subsubsubsection{Local referencing reduces detection of slow oscillations}
 Local referencing on micro and bipolar referencing on macro
 => This is why we will be using CAR throughout the manuscript
 
-\subsubsection{Slow-oscillation amplitude and \glspl{ied} rate}
+\subsubsubsection{Slow-oscillation amplitude and \glspl{ied} rate}
 Detection of IEDs (methods). IEDs are transient, non-oscillatory events. IEDs rate increases at rest. 1- and 2-Hz oscillations are more prominent in contacts clear from IEDs. 
 
-\subsubsection{Phase reversal of hippocampal 2-Hz oscillations}
+\subsubsubsection{Phase reversal of hippocampal 2-Hz oscillations}
 Echo to the introduction where we will have presented how the dipole is structured between layers, in humans and rodents. Show maybe one laminar recording from rodents. Then show phase reversal with cycle-triggered average of LFPs.
 
 % ---------- Subsection 2: 2-Hz in memory task
 \subsection{Hippocampal 2-Hz is selectively evoked in the memory task}
 \subsubsection{Hippocampal 2-Hz power increase with task engagement}
-Methods: one-over-f fitting. Results: Example contact; estimation plots with various controls; linear mixed-effects models. This is all using contacts free of interictal discharges (reader will understand why because we explained in the previous subsection). Burst duration is also higher in learning and recalling.
+Methods: one-over-f fitting. Results: Example contact; estimation plots with various controls; \glspl{lmem}. This is all using contacts free of interictal discharges (reader will understand why because we explained in the previous subsection). Burst duration is also higher in learning and recalling.
 
 \subsubsection{Hippocampal 2-Hz bursts are evoked by mnemonic cues}
 \subsubsubsection{\glspl{erp} are modulated by mnemonic engagement}
@@ -330,20 +357,33 @@ Measure evoked 1-, 2- and 6-Hz in other MTL and non-MTL regions. The measure of 
 Results : Autocorrelograms at 2-Hz. Inter-spike intervals at 500 ms in the MTL. Example neuron in the non-MTL to show we can easily find 6-Hz rhythmicity in the non-MTL.
 
 \subsubsection{\g{mtl} neurons prefer 2-Hz oscillations in the hippocampus}
-Results: cycle-triggered average of population rate in the EC and HPC to illustrate co-modulation at 2-Hz in these two example structures. Example spike-phase distribution reveals preference at 2-Hz of EC neurons. Quantification of spike-phase coupling using PPC in the MTL. Linear mixed-effects models showing that MTL gamma is better modulated at 2-Hz than non-MTL gamma.
+Results: cycle-triggered average of population rate in the EC and HPC to illustrate co-modulation at 2-Hz in these two example structures. Example spike-phase distribution reveals preference at 2-Hz of EC neurons. Quantification of spike-phase coupling using PPC in the MTL. \glspl{lmem} showing that MTL gamma is better modulated at 2-Hz than non-MTL gamma.
 
 \subsection{Hippocampal 2-Hz synchronizes \g{mtl} gamma oscillations}
 Methods: distal PAC. Results: cycle-triggered average of gamma activity in the MTL. Illustration of phase-amplitude coupling across the MTL. \g{mtl} gamma activity is preferentially coupled to hippocampal 2-Hz phase = quantification of MTL preference for 2-Hz oscillations. Phase synchronization is higher during learning and recalling than viewing sessions.
 
+Transition to Chapter 4: online => offline
+
 % --------------------------------------------------------------------------------
-% ------------------------------------ Chap 3 ------------------------------------ CHAP 3: OFFLINE
+% ------------------------------------ Chap 4 ------------------------------------ CHAP 4: OFFLINE
 % --------------------------------------------------------------------------------
 \chapter{Neural activity in the offline human hippocampus}
+
+% --------------- Conceptual introduction
+\section*{Conceptual introduction}
+\subsection*{The two-stage model of memory}
+Online (theta) → assembly formation. Offline (ripples) → assembly reactivation.
+
+\subsection*{Hypothesis}
+Human 2-Hz bursts form the online structure for memory-relevant coactivity patterns. Offline ripples should preferentially reinstate 2-Hz-structured motifs
+
+\subsection*{Analytical overview}
+Ripple detection and validation, coactivity motif construction. Reactivation analysis
 
 % --------------- Section I: Hippocampal basic physiology across sleep stages
 \section{Hippocampal physiology across sleep stages}
 \subsection{Hippocampal 2-Hz features \g{rem} sleep but not \g{sws}}
-Methods: describe polysomnography. Example of 2-Hz bursts. 2-Hz power across sleep stages. Maybe: propagation of 2-Hz oscillations in the rest of the MTL (hypothesis of the ponto-geniculo oscillations PGO)? 
+Methods: describe polysomnography. Example of 2-Hz bursts in REM. 2-Hz power across sleep stages. Maybe: propagation of 2-Hz oscillations in the rest of the MTL (hypothesis of the ponto-geniculo oscillations PGO)? 
 
 \subsection{Hippocampal ripples feature \g{sws} and rest sessions}
 \subsubsection{Detection of hippocampal ripples}
@@ -377,12 +417,81 @@ Learning but not viewing coactivity motifs reactivate. All controls related to l
 \subsubsection{Gamma coactivity motifs are rigid}
 All negative results on gamma coactivity, using the exact same analytical framework as with single-neurons. The aim here is to report this negative result, and echo the work done with gamma correlations in the visual field (other lab).
 
-
 % --------------------------------------------------------------------------------
 % --------------------------------- DISCUSSION -----------------------------------
 % --------------------------------------------------------------------------------
 \chapter{Discussion}
 
+Limits: what happens out of the oscillatory bursts? Noise does not exist in physiology: what information do these out-of-bursts epochs carry? These would be epochs where the firing rate is higher (aperiodic components), fractal measures are higher, but it remains unclear what is actually happening there for the network. Is it really "not" communicating with other structures? If yes, how does it communicate? What are the alternatives mechanisms to "communication through coherence"? Main challenge to study this is that the rodent hippocampus is virtually always paced by theta. Then maybe that would be the biggest inter-species difference we find: transient oscillations. Note: it could be useful to illustrate this discussion to show 6-8Hz in the temporal cortex as well.
 
+% --------------------------------------------------------------------------------
+% ---------------------------- METHODS APPENDICES --------------------------------
+% --------------------------------------------------------------------------------
+
+\appendix
+
+% --------------- Appendix A: Data acquisition 
+\chapter{Appendix: Neurophysiological recordings and analysis of oscillations}
+
+\section{Data acquisition and preprocessing}
+\subsection{Participants}
+\subsection{\g{deeg} electrodes}
+\subsection{Co-registration and anatomical verification}
+\subsection{Neurophysiological recordings}
+\subsection{Detection of \glspl{ied}}
+
+\section{Decomposing \glspl{lfp} into oscillatory components}
+\subsection{Rationale for IMF-based decomposition}
+\subsection{Mask optimization and criteria}
+\subsection{Cycle detection and quality control}
+\subsection{Detection of oscillatory bursts}
+
+\section{Other spectral decompositions}
+\subsection{Power Spectral Density Estimation (Welch)}
+\subsection{Aperiodic Correction Using FOOOF}
+\subsection{Morlet Wavelet Spectrogram Parameters}
+\subsection{Stimulus-Locked Spectral Amplitude Estimation}
+\subsection{Detection of gamma activity}
+
+\section{Cross-frequency analyses}
+\subsection{\g{pac} and phase randomization}
+\subsection{\g{hhsa}}
+
+% --------------- Appendix B: Single-neuron analyses
+\chapter{Appendix: Analysis of single-neuron activity}
+
+\section{Spike sorting and single-unit validation}
+\subsection{Automated pipeline}
+\subsection{Manual curation quality criteria}
+\subsection{Waveform classification}
+
+\section{Spike-field relationship}
+\subsection{\g{ppc} and phase randomization}
+\subsection{Spike-gamma relationship}
+
+% --------------- Appendix C: Hippocampal ripples and reactivation
+\chapter{Appendix: Hippocampal ripples and reactivation}
+
+\section{Ripple Detection and Validation}
+\subsection{Initial ripple detection}
+\subsection{Template matching}
+\subsection{Final detection and quality controls}
+\subsection{Ripple-triggered averages}
+\subsection{Characterization of ripple central frequency}
+
+\section{Detection of cross-regional coactivity motifs}
+\subsection{Epochs selection}
+\subsection{Using single-neurons}
+\subsection{Using gamma activity}
+
+\section{Reactivation of coactivity motifs in hippocampal ripples}
+\subsection{\glspl{glm}}
+\subsection{Controls}
+
+% --------------- Appendix D: Statistical analyses
+\chapter{Appendix: Statistical analyses}
+\section{Bootstrap and permutation tests}
+\section{\glspl{glm} and \glspl{lmem}}
+\section{Cluster-based permutation}
 
 \end{document}
