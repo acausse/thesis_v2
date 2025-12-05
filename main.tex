@@ -101,6 +101,7 @@
 \newacronym{fmri}{fMRI}{functional magnetic resonance imaging}
 \newacronym{umap}{UMAP}{uniform manifold approximation and projection}
 \newacronym{isomap}{ISOMAP}{isometric mapping}
+\newacronym{car}{CAR}{common-average reference}
 
 % Manage plurals
 \newacronym[
@@ -177,7 +178,7 @@
 \glsadd{psd}
 \glsadd{imf}
 \glsadd{ci}
-
+\glsadd{car}
 
 % ----------------------------- Begin document -----------------------------
 \begin{document}
@@ -298,7 +299,7 @@ Oscillation decomposition (concept). Burst detection (concept). Spike-phase and 
 
 % ---------- Subsection 1: Detecting 2-Hz
 \subsection{Prominent 2-Hz bursts structure hippocampal \gsp{lfp}}
-\subsubsection{Recording hippocampal \gsp{lfp} with \gs{deeg} in humans} % @@@
+\subsubsection{Recording hippocampal \gsp{lfp} with \gs{deeg} in humans}
 To characterize hippocampal network activity in humans, we recorded \gp{lfp} directly from the hippocampus using \g{deeg}. Thirty-five participants undergoing clinical monitoring for pharmacoresistant epilepsy in two centers (Toulouse and Paris) were included in this study. Electrode implantation followed clinical requirements only. Because the hippocampus is commonly involved in seizure networks (REF), electrodes were often implanted in the hippocampus (Fig.~\ref{fig:hpc-electrodes}A). In this manuscript, we focussed on participants with at least one electrode implanted in the hippocampus. Participants were implanted with standard and hybrid depth electrodes (DIXI Medical in Toulouse or Behnke–Fried in Paris). Hybrid electrodes incorporated both macrocontacts and microelectrodes (tetrodes or microwires). For consistency across the two centers, macrocontacts were used to obtain \gp{lfp} and common average referencing was applied. Tetrodes were used to identify single-neuron activity next to the macrocontact (Fig.~\ref{fig:hpc-electrodes}B) and are used from chapter~\ref{subsec:2Hz-neurons} of this manuscript. Anatomical localization of each macrocontact was obtained by co-registering postoperative CT with preoperative MRI and mapping contacts to individual hippocampal volumes (Fig.~\ref{fig:hpc-electrodes}C,D). For additional methodological details see Appendix~\ref{apdx:acquisition}. 
 
 \begin{center}
@@ -366,7 +367,7 @@ We confirmed this observation by applying spectral parameterization (REF; see Ap
 \captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
 \captionof{figure}{
     \label{fig:hpc-power_acrossFreqs}
-    \textbf{2-Hz oscillations dominate in the hippocampus}
+    \textbf{2-Hz oscillations dominate in the human hippocampus}
     (\textbf{A}) \gp{psd} corrected for the power law and averaged across hippocampal macrocontacts free of \gp{ied}. Shaded areas indicate mean ±~SEM. 
     (\textbf{B}) Estimation plots showing median differences between corrected 1-, 2-, and 6-Hz peak power (left), and between 2-Hz and 6-Hz peak power (right). 
     (\textbf{C}) Distribution showing positive 2-Hz/6-Hz peak power ratios in hippocampal contacts.
@@ -387,7 +388,7 @@ Hippocampal 2-Hz activity appeared as transient oscillatory bursts and was obser
     (\textbf{C}) \gsp{psd} averaged over the 10-min active sessions corresponding to the recordings shown in panel B. All contacts were free of \gsp{ied} (from top to bottom: 0, 0.34, 0.79, 0.33, and 0.24 discharges detected per minute).
 }
 
-To quantify these events, we used the 2-Hz \g{imf} to detect bursts defined as periods of increased power within the 1–4~Hz range, retaining only events lasting at least two oscillatory cycles (Fig.~\ref{fig:ex-burstDetection}A). For each burst, we then measured onset, offset, and duration, expressed both in seconds and in number of cycles (Fig.~\ref{fig:ex-burstDetection}B). Full methodological details are provided in Appendix~\ref{apdx:decompositions}. Across subjects, the maximal burst duration showed substantial variability (Fig.~\ref{fig:ex-burstDetection}C), consistent with the transient expression of these 2-Hz events (mean maximum number [95\% confidence interval (CI)]: 19.6 [15.8 – 23.4] cycles per burst).
+To quantify these events, we used wavelet spectrograms to detect bursts defined as periods of increased power within the 1–4~Hz range, retaining only events lasting at least two oscillatory cycles (Fig.~\ref{fig:ex-burstDetection}A). For each burst, we then measured onset, offset, and duration, expressed both in seconds and in number of cycles (Fig.~\ref{fig:ex-burstDetection}B). Full methodological details are provided in Appendix~\ref{apdx:decompositions}. Across subjects, the maximal burst duration showed substantial variability (Fig.~\ref{fig:ex-burstDetection}C), consistent with the transient expression of these 2-Hz events (mean maximum number [95\% confidence interval (CI)]: 19.6 [15.8 – 23.4] cycles per burst).
 
 \begin{center}
     \includegraphics[width=\textwidth]{thefig_ex-burstDetection.png}
@@ -403,15 +404,63 @@ To quantify these events, we used the 2-Hz \g{imf} to detect bursts defined as p
 
 \subsubsection{Validation of 2-Hz oscillations}
 
-\subsubsubsection{Local referencing reduces detection of slow oscillations}
-Local referencing on micro and bipolar referencing on macro
-=> This is why we will be using CAR throughout the manuscript
-
-\subsubsubsection{Slow-oscillation amplitude and \gsp{ied} rate}
-Detection of IEDs (methods). IEDs are transient, non-oscillatory events. IEDs rate increases at rest. 1- and 2-Hz oscillations are more prominent in contacts clear from IEDs. 
+Intro sentence: We next investigated whether these 2-Hz bursts were valid oscillations...
 
 \subsubsubsection{Phase reversal of hippocampal 2-Hz oscillations}
-Echo to the introduction where we will have presented how the dipole is structured between layers, in humans and rodents. Show maybe one laminar recording from rodents. Then show phase reversal with cycle-triggered average of LFPs.
+Hippocampal pyramidal cells are arranged in a well-defined laminar structure, which creates a consistent somato-dendritic axis that allows oscillations to be detected in \gp{lfp} (REF). When large groups of these neurons receive synchronized post-synaptic currents, the resulting transmembrane currents sum in space and form a macroscopic current dipole. This dipole generates extracellular voltage gradients that can be measured by depth electrodes as \gp{lfp}. Because this dipole is aligned across the pyramidal layer, \gp{lfp} recorded on linearly arranged contacts, i.e., spanning the somato-dendritic axis, would show a phase reversal: a same oscillatory cycle will have opposed phase on contacts located on opposite sides of the dipole. In the human hippocampus, layers are organized along the para-sagittal axis thus the dipole lies predominantly along the medio-lateral axis. The trajectories of the electrode shafts in our recordings positioned adjacent macrocontacts along this medio–lateral axis (Fig.~\ref{fig:hpc-anatomy}A, left anterior contacts and Fig.~\ref{fig:phaseReversal}A), where we observed a clear 2-Hz phase reversal (Fig.~\ref{fig:phaseReversal}B,C). This reversal is consistent with a locally generated oscillation rather than a volume-conducted signal from a distal source (see Chapter~\ref{subsec:2Hz-neurons} for further evidence). 
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_phaseReversal.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:phaseReversal}
+    \textbf{Phase reversal of hippocampal 2-Hz oscillations}
+    (\textbf{A}) 3D hippocampal volumes showing three linearly arranged recording contacts from the same electrode shaft (“Hpc 1a, 1b, and 1c”).
+    (\textbf{B}) Average \g{lfp} traces aligned to hippocampal 2-Hz oscillatory peaks, showing polarity reversal across adjacent contacts. Shaded areas indicate mean ±~SEM.
+    (\textbf{C}) Heatmap of average phase differences between the three contacts.
+}
+
+\subsubsubsection{Slow-oscillation amplitude and \gsp{ied} rate}
+Given that these recordings were obtained from participants with drug-resistant epilepsy we next verified that hippocampal 2-Hz was not a by-product of the underlying pathology. \gp{ied} are a common feature of epilepsy (REF) and can be reliably detected (REF janca, Fig.~\ref{fig:ieds-examples}) from \g{deeg} (for further details on \gp{ied} see Appendix~\ref{apdx:acquisition}). \gp{ied} rate provides an objective measure of how strongly a given tissue is affected by epileptiform activity. 
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_ieds-examples.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:ieds-examples}
+    \textbf{Example of interictal epileptiform discharges}
+    (\textbf{A}) 3D hippocampal volumes showing the three recording sites used in panel B.
+    (\textbf{B}) Example simultaneous 3-s recording from three hippocampal contacts, with \gp{ied} detected on “Hpc 1” (yellow arrowheads).
+}
+
+In these recordings, hippocampal macrocontacts with lower \gp{ied} rates showed more prominent slow oscillations (Fig.~\ref{fig:ieds-power}). Consistently, 2-Hz power was negatively correlated with \gsp{ied} rate (Spearman $r = -0.25 P < 0.001$), whereas 6-Hz power showed no significant relationship (Spearman $r = 0.06, P = 0.336$). These results suggest that hippocampal 2-Hz rhythm is physiological and is not driven by epileptiform processes.
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_ieds-power.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:ieds-power}
+    \textbf{Hippocampal slow oscillations are more prominent outside irritative zones}
+    Estimation plots showing median differences in 1-, 2-, and 6-Hz power between hippocampal contacts free of \gsp{ied} and those containing \gsp{ied}, as a function of the IED-rate threshold (0.5, 1, 2, and 5~min$^{-1}$). Data were analyzed using two-sided paired permutation tests; ***P~<~0.001, **P~<~0.01, *P~<~0.05; n.s., not significant.
+}
+
+\subsubsubsection{Local reference reduces detection of slow oscillations}
+To investigate other factors that may impact the detectability of these slower oscillations, we compared two re-referencing montages commonly used with macrocontacts (\g{car} versus bipolar reference), and with microelectrodes (monopolar versus local reference). Bipolar and local reference involve subtracting signal from adjacent macrocontacts or tetrodes, respectively. Raw signals and in particular slow oscillations were dramatically affected by bipolar and local reference (Fig.~\ref{fig:localRef}A): they became either invisible or they showed inconsistent phase distortions. Across all hippocampal macrocontacts, bipolar/local reference impaired detectability of these slower oscillations (Fig.~\ref{fig:localRef}B--D). For this reason, all analyses in this manuscript use the \g{car}, which better preserves slow oscillatory components. 
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_localRef.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:localRef}
+    \textbf{Local reference reduces detection of slow oscillations}
+    (\textbf{A}) Example 10-s recording from a hybrid hippocampal electrode showing macrocontact \gsp{lfp} traces re-referenced using a common average (CAR, purple) or a bipolar (pink) montage, and tetrode \gsp{lfp} traces before (black) and after (gray) local reference, with corresponding spectrograms.
+    (\textbf{B}) Schematic illustrating local reference: monopolar signals were initially acquired from a distal white-matter contact and then re-referenced either to the median across all macrocontacts (common average reference, CAR) or by subtracting adjacent macrocontacts (e.g., Mac~1 -- Mac~2) or tetrodes (e.g., Tet~1 -- Tet~2) from the same hybrid electrode.
+    (\textbf{C} and \textbf{D}) Estimation plots showing mean differences in hippocampal 1-, 2-, and 6-Hz power after applying bipolar reference to macrocontacts (relative to CAR, panel C) and local reference to tetrodes (relative to monopolar, panel D). Data were analyzed using two-sided paired permutation tests; ***P~<~0.001, *P~<~0.05; n.s., not significant.
+}
 
 % ---------- Subsection 2: 2-Hz in memory task
 \subsection{Hippocampal 2-Hz is selectively evoked in the memory task}
