@@ -476,6 +476,7 @@ To address this question we compared the changes in oscillatory power while part
 \captionof{figure}{
     \label{fig:dep-powerTask-ex2Hz}
     \textbf{Hippocampal 2-Hz power increases with mnemonic engagement}
+
     (\textbf{A}) \gsp{psd} from an example hippocampal electrode contact across task stages.
     (\textbf{B}) Group-level estimation plot showing mean hippocampal 2-Hz power across task stages relative to pre-learning rest (left) or viewing (right). Data were analyzed by two-sided paired permutation tests; ***P < 0.001, **P < 0.01; n.s., not significant.
 }
@@ -489,6 +490,7 @@ No comparable modulation was seen for the 1-Hz or 6-Hz bands (Fig.~\ref{fig:dep-
 \captionof{figure}{
     \label{fig:dep-powerTask-controls}
     \textbf{Hippocampal oscillatory dynamics during the memory task - controls}
+
     (\textbf{A}) Group-level estimation plot showing mean hippocampal 1-Hz (left) and 6-Hz (right) power differences relative to pre-learning rest. Data were analyzed by two-sided paired permutation tests; ***P < 0.001, *P < 0.05; n.s., not significant.
     (\textbf{B}) Heatmap of $\beta$ coefficients from a \g{lmem} predicting hippocampal 1-, 2-, or 6-Hz power as a function of task stage (pre-learning rest as the reference level), with subject treated as a random effect. Black squares indicate significant coefficients (Wald test, P < 0.05).
 }
@@ -507,7 +509,8 @@ Previous work using hippocampal \g{deeg} has shown that the late \gp{erp} deflec
 \captionof{figure}{
     \label{fig:erps-heatmap}
     \textbf{Hippocampal \gs{erp} across task sessions}
-    Group-level average hippocampal \gsp{lfp} aligned to the onset of viewing (left), learning (middle), or recall (right) photographic cues, with corresponding contact-level averages shown as a heatmap below. Contacts are sorted by the mean negative deflection in the recall condition for clarity. “Photograph 1” and “Photograph 2” denote the first and second paired associates presented during learning, respectively.
+
+    Group-level average hippocampal \gsp{lfp} aligned to the onset of viewing (left), learning (middle), or recall (right) photographic cues, with corresponding contact-level averages shown as a heatmap below. Contacts are sorted by the mean negative deflection in the recall condition for clarity. “Photograph 1” and “Photograph 2” denote the first and second paired associates presented during learning, respectively. Shaded areas indicate mean ± SEM.
 }
 
 Consistently with earlier reports, the magnitude of the \g{erp} deflection (hP600) was greater after the onset of learning and recalling photographs than after viewing photographs (Fig.~\ref{fig:erps-taskStats}A). In addition, \g{erp} deflection was more pronounced for paired-associates with the best recall performance than those worst remembered, during the recall session (Fig.~\ref{fig:erps-taskStats}B). These results show that hippocampal \g{lfp} responses to visual stimuli are modulated by the mnemonic content of the photographs presented.
@@ -518,17 +521,58 @@ Consistently with earlier reports, the magnitude of the \g{erp} deflection (hP60
 \captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
 \captionof{figure}{
     \label{fig:erps-taskStats}
-    \textbf{Hippocampal \gs{erp} deflection is modulated by mnemomic engagement}
-    (\textbf{A}) Group-level average hippocampal \gsp{lfp}s showing contrasts between viewing and learning or recall sessions. \gs{erp} have a greater deflection after the onset of learning and recalling photographs than after viewing photographs.
-    (\textbf{B}) Group-level average hippocampal \gsp{lfp}s showing contrasts between best and worst recalled associations during memory recall. Data were analyzed with cluster-based permutation tests; ***P < 0.001, **P < 0.01, *P < 0.05; n.s., not significant.
+    \textbf{Hippocampal \gs{erp} deflections are modulated by mnemomic engagement}
+
+    (\textbf{A}) Group-level average hippocampal \gsp{lfp} showing contrasts between viewing and learning or recall sessions. \gs{erp} have a greater deflection after the onset of learning and recalling photographs than after viewing photographs.
+    (\textbf{B}) Group-level average hippocampal \gsp{lfp} showing contrasts between best and worst recalled associations during memory recall. Shaded areas indicate mean ± SEM. Data were analyzed with cluster-based permutation tests; ***P < 0.001, **P < 0.01, *P < 0.05; n.s., not significant.
 }
 
-\subsubsubsection{Evoked oscillations follow \gsp{erp} deflection}
+\subsubsubsection{Hippocampal 2-Hz is an evoked oscillation and follows the \gsp{erp}}
+Should 2-Hz oscillations be important for mnemonic processing, they should occur after the onset of memory-relevant cues. Having characterized the early hippocampal response, we next asked whether 2-Hz oscillations appear once the hP600 \g{erp} has resolved, i.e., during the inter-stimulus interval (Fig.~\ref{fig:erps-exampleEvoked}).
 
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_erps-exampleEvoked.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:erps-exampleEvoked}
+    \textbf{Example hippocampal \gs{erp} and evoked 2-Hz burst}
 
-Evoked 1-, 2- and 6-Hz amplitudes relate to mnemonic engagement. Correlation between evoked ERPs deflection and 2-Hz amplitude. 
+    Peri-stimulus average of hippocampal \gsp{lfp} recorded from one example macrocontact with corresponding spectrogram, showing an \gsp{erp} followed by a transient 2-Hz oscillation burst occurring during the inter-stimulus interval period.
+}
+
+To assess whether 2-Hz was evoked by photographs onset, we measured wavelet spectrograms after each stimulus in the three active phases of the memory task, and compared the mean amplitude after stimulus onset to the baseline, pre-stimulus period. Hippocampal 2-Hz amplitude was higher after the onset of learning and recalling photographs, but not viewing photographs (Fig.~\ref{fig:erps-evokedAmp}A). Moreover, the 2-Hz evoked (baseline-corrected) amplitude was higher in learning and recalling than in viewing (Fig.~\ref{fig:erps-evokedAmp}B), a difference not observed for the 1- and 6-Hz oscillations (Fig.~\ref{fig:erps-evokedAmp}D). Finally, during the presentation of learning photographs, hippocampal 2-Hz evoked by paired-associates that will be best recalled was greater than those later worst remembered (Fig.~\ref{fig:erps-evokedAmp}C), a phenomenon named subsequent memory effect (REF). 
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_erps-evokedAmp.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:erps-evokedAmp}
+    \textbf{Hippocampal 2-Hz is evoked by mnemonic cues}
+
+    (\textbf{A}) Mean post-\gsp{erp} 2-Hz amplitude (>1 s after photograph onset) relative to the pre-stimulus baseline in viewing, learning, and recall sessions (before baseline correction).
+    (\textbf{B}) Median differences in evoked 2-Hz amplitude during learning or recall relative to viewing, computed over post-\gsp{erp} epochs (after baseline correction).  
+    (\textbf{C}) Estimation plot showing 2-Hz evoked amplitude during learning trials that subsequently produced best versus worst memory recall.
+    (\textbf{D}) Median differences in evoked 1-Hz (left) and 6-Hz (right) amplitudes as in (B). Data were analyzed using two-sided paired permutation tests; ***P < 0.001, **P < 0.01, *P < 0.05; n.s., not significant.
+}
+
+Taken together, these results show that mnemonic cues trigger an early evoked response that evolves into a slower, sustained 2-Hz oscillation in the human hippocampus. To better link these two processes, we next measured the correlation between the magnitude of the \g{erp} deflection and the amplitude of the evoked oscillations at 1-, 2- and 6-Hz in the recall session. Interestingly, hippocampal macrocontacts with the most pronounced \g{erp} deflections also had the highest evoked 2-Hz, bot not 1- or 6-Hz amplitude (Fig.~\ref{fig:erps-correlations}).
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_erps-correlations.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:erps-correlations}
+    \textbf{Correlation between hippocampal \gs{erp} deflection and evoked 2-Hz oscillations}
+
+    Correlation between hippocampal \gs{erp} deflection and evoked oscillatory amplitudes at 1, 2, and 6 Hz during recall.
+}
+
 
 \subsubsection{Hippocampal 2-Hz oscillations are not evoked by motor activity}
+
 Methods: Stepping sessions. Results: three example contacts (PSDs) with clear 2-Hz in learning but not during stepping. Statistics on these three subjects.
 
 Note to myself: I could as well add a small control here, using viewing and post-viewing sessions when the participants hit the space bar (second image). Paired analysis by comparing the evoked amplitude after the first (no motor activity) and the second (motor activity) image seen in a row. It may be confounded by the short term memory effect but we dont expect this to elicit a massive 2-Hz.
