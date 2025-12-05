@@ -358,7 +358,7 @@ Though we were able to detect 6-Hz oscillations in the human hippocampus, the mo
     From top to bottom: wide-band \gp{lfp} trace obtained from tetrode recording, \gp{imf}, and the corresponding wavelet spectrogram.
 }
 
-We confirmed this observation by applying spectral parameterization (REF; see Appendix~\ref{apdx:spectraldec}), which separates the periodic components of the \gp{psd} from the broadband, aperiodic structure of the spectrum. This procedure allowed us to quantify narrow-band oscillatory peaks independently of differences in overall spectral slope across contacts or participants. After removing the aperiodic component, the periodic residuals showed a clear prominence of the 2-Hz component in the hippocampus (Fig.~\ref{fig:hpc-power_acrossFreqs}A). Specifically, the corrected spectra yielded higher power at 2~Hz than at 1~Hz or 6~Hz (Fig.~\ref{fig:hpc-power_acrossFreqs}B), and the computed 2-Hz/6-Hz peak power ratio was consistently positive across hippocampal contacts (mean ratio [95\% \g{ci}]:  0.21 [0.15 – 0.27]; Fig.~\ref{fig:hpc-power_acrossFreqs}C). This analysis suggests that hippocampal activity is dominated by a 2-Hz rhythm.
+We confirmed this observation by applying spectral parameterization (REF; see Appendix~\ref{apdx:spectraldec}), which separates the periodic components of the \gp{psd} from the broadband, aperiodic structure of the spectrum. This procedure allowed us to quantify narrow-band oscillatory peaks independently of differences in overall spectral slope across contacts or participants. After removing the aperiodic component, the periodic residuals showed a clear prominence of the 2-Hz component in the hippocampus (Fig.~\ref{fig:hpc-power_acrossFreqs}A). Specifically, the corrected spectra yielded higher power at 2~Hz than at 1~Hz or 6~Hz (Fig.~\ref{fig:hpc-power_acrossFreqs}B), and the computed 2-Hz/6-Hz peak power ratio was consistently positive across hippocampal contacts (mean ratio [95\% \g{ci}]:  0.21 [0.15 – 0.27]; Fig.~\ref{fig:hpc-power_acrossFreqs}C). These results analysis suggest that hippocampal activity is dominated by a 2-Hz rhythm.
 
 \begin{center}
     \includegraphics[width=\textwidth]{thefig_hpc-power_acrossFreqs.png}
@@ -373,11 +373,33 @@ We confirmed this observation by applying spectral parameterization (REF; see Ap
 }
 
 \subsubsection{Hippocampal 2-Hz oscillations are transient}
+Hippocampal 2-Hz activity appeared as transient oscillatory bursts and was observable across subjects and along the hippocampal formation (Fig.~\ref{fig:hpc-2Hzbursts}).
 
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_hpc-2Hzbursts.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:hpc-2Hzbursts}
+    \textbf{Examples of hippocampal 2-Hz bursts}
+    (\textbf{A}) 3D hippocampal volumes showing electrode contact locations used in panels B and C.
+    (\textbf{B}) Example 15-s hippocampal macrocontact recordings showing 2-Hz oscillations with corresponding spectrograms and (\gp{imf}) from five participants (one row per participant).
+    (\textbf{C}) \gsp{psd} averaged over the 10-min active sessions corresponding to the recordings shown in panel B. All contacts were free of \gsp{ied} (from top to bottom: 0, 0.34, 0.79, 0.33, and 0.24 discharges detected per minute).
+}
 
-Detection of IMF cycles. Detection of discrete oscillatory bursts.
-Show multiple examples of 2-Hz bursts across contacts and subjects, particularly in contacts clear from IEDs.
-Quantification of bursts duration.
+To quantify these events, we used the 2-Hz \g{imf} to detect bursts defined as periods of increased power within the 1–4~Hz range, retaining only events lasting at least two oscillatory cycles (Fig.~\ref{fig:ex-burstDetection}A). For each burst, we then measured onset, offset, and duration, expressed both in seconds and in number of cycles (Fig.~\ref{fig:ex-burstDetection}B). Full methodological details are provided in Appendix~\ref{apdx:decompositions}. Across subjects, the maximal burst duration showed substantial variability (Fig.~\ref{fig:ex-burstDetection}C), consistent with the transient expression of these 2-Hz events (mean maximum number [95\% confidence interval (CI)]: 19.6 [15.8 – 23.4] cycles per burst).
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_ex-burstDetection.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:ex-burstDetection}
+    \textbf{Detection of hippocampal 2-Hz bursts}
+    (\textbf{A}) Example 27-s hippocampal \g{lfp} showing 2-Hz oscillatory bursts with corresponding spectrogram and 2-Hz \g{imf}.
+    (\textbf{B}) Distributions of burst durations measured in cycles (top) and seconds (bottom) for the hippocampal macrocontact shown in panel A. A total of 174 bursts lasting at least two cycles were detected in this recall session. Arrowheads indicate the durations of the two bursts visible in panel A.
+    (\textbf{C}) Distributions of maximal burst duration in cycles (top) and seconds (bottom) per recording day across participants.
+}
 
 \subsubsection{Validation of 2-Hz oscillations}
 
@@ -541,6 +563,7 @@ Limits: what happens out of the oscillatory bursts? Noise does not exist in phys
 \subsection{Detection of \gsp{ied}}
 
 \section{Decomposing \gsp{lfp} into oscillatory components}
+\label{apdx:decompositions}
 \subsection{Rationale for IMF-based decomposition}
 Here we will describe the optimization steps, final parameters of the masks used. Also Examplify non-linearity of the signal (phase-frequency plots)
 \subsection{Mask optimization and criteria}
