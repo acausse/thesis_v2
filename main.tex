@@ -241,6 +241,7 @@ Direct recording of hippocampal activity using \g{deeg}. History. Methodological
 % ------------------------------------ Chap 2 ------------------------------------ CHAP 2: Behaviour (PRELIMINARY)
 % --------------------------------------------------------------------------------
 \chapter{Assessing associative memory in human participants} % chap 2
+\label{chap:behaviour}
 
 \section{Conceptual introduction} % it could as well be placed in the general introduction, but I rather like it here so the focus of the thesis is clearly physiology?
 Why behaviour matters for interpreting hippocampal physiology?
@@ -370,7 +371,7 @@ We confirmed this observation by applying spectral parameterization (REF; see Ap
     \textbf{2-Hz oscillations dominate in the human hippocampus}
     (\textbf{A}) \gp{psd} corrected for the power law and averaged across hippocampal macrocontacts free of \gp{ied}. Shaded areas indicate mean ±~SEM. 
     (\textbf{B}) Estimation plots showing median differences between corrected 1-, 2-, and 6-Hz peak power (left), and between 2-Hz and 6-Hz peak power (right). 
-    (\textbf{C}) Distribution showing positive 2-Hz/6-Hz peak power ratios in hippocampal contacts.
+    (\textbf{C}) Distribution showing positive 2-Hz/6-Hz peak power ratios in hippocampal contacts. Data were analyzed by two-sided paired permutation tests; ***P < 0.001.
 }
 
 \subsubsection{Hippocampal 2-Hz oscillations are transient}
@@ -403,9 +404,6 @@ To quantify these events, we used wavelet spectrograms to detect bursts defined 
 }
 
 \subsubsection{Validation of 2-Hz oscillations}
-
-Intro sentence: We next investigated whether these 2-Hz bursts were valid oscillations...
-
 \subsubsubsection{Phase reversal of hippocampal 2-Hz oscillations}
 Hippocampal pyramidal cells are arranged in a well-defined laminar structure, which creates a consistent somato-dendritic axis that allows oscillations to be detected in \gp{lfp} (REF). When large groups of these neurons receive synchronized post-synaptic currents, the resulting transmembrane currents sum in space and form a macroscopic current dipole. This dipole generates extracellular voltage gradients that can be measured by depth electrodes as \gp{lfp}. Because this dipole is aligned across the pyramidal layer, \gp{lfp} recorded on linearly arranged contacts, i.e., spanning the somato-dendritic axis, would show a phase reversal: a same oscillatory cycle will have opposed phase on contacts located on opposite sides of the dipole. In the human hippocampus, layers are organized along the para-sagittal axis thus the dipole lies predominantly along the medio-lateral axis. The trajectories of the electrode shafts in our recordings positioned adjacent macrocontacts along this medio–lateral axis (Fig.~\ref{fig:hpc-anatomy}A, left anterior contacts and Fig.~\ref{fig:phaseReversal}A), where we observed a clear 2-Hz phase reversal (Fig.~\ref{fig:phaseReversal}B,C). This reversal is consistent with a locally generated oscillation rather than a volume-conducted signal from a distal source (see Chapter~\ref{subsec:2Hz-neurons} for further evidence). 
 
@@ -447,7 +445,7 @@ In these recordings, hippocampal macrocontacts with lower \gp{ied} rates showed 
     Estimation plots showing median differences in 1-, 2-, and 6-Hz power between hippocampal contacts free of \gsp{ied} and those containing \gsp{ied}, as a function of the IED-rate threshold (0.5, 1, 2, and 5~min$^{-1}$). Data were analyzed using two-sided paired permutation tests; ***P~<~0.001, **P~<~0.01, *P~<~0.05; n.s., not significant.
 }
 
-\subsubsubsection{Local reference reduces detection of slow oscillations}
+\subsubsubsection{Local reference impairs detection of slow oscillations}
 To investigate other factors that may impact the detectability of these slower oscillations, we compared two re-referencing montages commonly used with macrocontacts (\g{car} versus bipolar reference), and with microelectrodes (monopolar versus local reference). Bipolar and local reference involve subtracting signal from adjacent macrocontacts or tetrodes, respectively. Raw signals and in particular slow oscillations were dramatically affected by bipolar and local reference (Fig.~\ref{fig:localRef}A): they became either invisible or they showed inconsistent phase distortions. Across all hippocampal macrocontacts, bipolar/local reference impaired detectability of these slower oscillations (Fig.~\ref{fig:localRef}B--D). For this reason, all analyses in this manuscript use the \g{car}, which better preserves slow oscillatory components. 
 
 \begin{center}
@@ -456,7 +454,7 @@ To investigate other factors that may impact the detectability of these slower o
 \captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
 \captionof{figure}{
     \label{fig:localRef}
-    \textbf{Local reference reduces detection of slow oscillations}
+    \textbf{Local reference impairs detection of slow oscillations}
     (\textbf{A}) Example 10-s recording from a hybrid hippocampal electrode showing macrocontact \gsp{lfp} traces re-referenced using a common average (CAR, purple) or a bipolar (pink) montage, and tetrode \gsp{lfp} traces before (black) and after (gray) local reference, with corresponding spectrograms.
     (\textbf{B}) Schematic illustrating local reference: monopolar signals were initially acquired from a distal white-matter contact and then re-referenced either to the median across all macrocontacts (common average reference, CAR) or by subtracting adjacent macrocontacts (e.g., Mac~1 -- Mac~2) or tetrodes (e.g., Tet~1 -- Tet~2) from the same hybrid electrode.
     (\textbf{C} and \textbf{D}) Estimation plots showing mean differences in hippocampal 1-, 2-, and 6-Hz power after applying bipolar reference to macrocontacts (relative to CAR, panel C) and local reference to tetrodes (relative to monopolar, panel D). Data were analyzed using two-sided paired permutation tests; ***P~<~0.001, *P~<~0.05; n.s., not significant.
@@ -464,14 +462,70 @@ To investigate other factors that may impact the detectability of these slower o
 
 % ---------- Subsection 2: 2-Hz in memory task
 \subsection{Hippocampal 2-Hz is selectively evoked in the memory task}
-\subsubsection{Hippocampal 2-Hz power increase with task engagement}
-Methods: one-over-f fitting. Results: Example contact; estimation plots with various controls; \gsp{lmem}. This is all using contacts free of interictal discharges (reader will understand why because we explained in the previous subsection). Burst duration is also higher in learning and recalling.
+
+Across participants, hippocampal \gp{lfp} revealed a prominent 2-Hz oscillation that dominated other slow rhythms and occurred in transient bursts. This rhythm showed a clear laminar phase reversal and was strongest in contacts free of \gsp{ied}, suggesting that it is a physiological rhythm. These properties indicate that hippocampal 2-Hz could be a good candidate oscillation for comparison with rodent hippocampal theta. Hippocampal theta in rodents increases during exploratory behaviour, and during memory encoding and recall (REF). In rabbits, bats and cats it is also tightly linked with sensory acquisition and is thus considered a key mechanism of active sensing (REFS). This raises two questions for the comparison with human hippocampal oscillations: does hippocampal 2-Hz also increase during memory encoding and recall, and is it similarly evoked by memory-relevant cues?  
+
+\subsubsection{Hippocampal 2-Hz power increase with mnemonic engagement}
+
+To address this question we compared the changes in oscillatory power while participants were engaged in the associative memory task presented in Chapter~\ref{chap:behaviour}. Focussing on hippocampal macrocontacts free of \gp{ied}, we observed that 2-Hz oscillations exhibited significantly greater power during both learning and recall than during resting or viewing sessions (Fig.~\ref{fig:dep-powerTask-controls}; learning, P < 0.001; recalling, P = 0.006; paired permutation tests compared to pre-learning rest). 
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_dep-powerTask-ex2Hz.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:dep-powerTask-ex2Hz}
+    \textbf{Hippocampal 2-Hz power increases with mnemonic engagement}
+    (\textbf{A}) \gsp{psd} from an example hippocampal electrode contact across task stages.
+    (\textbf{B}) Group-level estimation plot showing mean hippocampal 2-Hz power across task stages relative to pre-learning rest (left) or viewing (right). Data were analyzed by two-sided paired permutation tests; ***P < 0.001, **P < 0.01; n.s., not significant.
+}
+
+No comparable modulation was seen for the 1-Hz or 6-Hz bands (Fig.~\ref{fig:dep-powerTask-controls}A). \Gp{lmem} confirmed that this enhancement was specific to 2-Hz and did not extend to adjacent frequencies (Fig.~\ref{fig:dep-powerTask-controls}B; learning, P < 0.001; recalling, P = 0.040; Wald tests).
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_dep-powerTask-controls.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:dep-powerTask-controls}
+    \textbf{Hippocampal oscillatory dynamics during the memory task - controls}
+    (\textbf{A}) Group-level estimation plot showing mean hippocampal 1-Hz (left) and 6-Hz (right) power differences relative to pre-learning rest. Data were analyzed by two-sided paired permutation tests; ***P < 0.001, *P < 0.05; n.s., not significant.
+    (\textbf{B}) Heatmap of $\beta$ coefficients from a \g{lmem} predicting hippocampal 1-, 2-, or 6-Hz power as a function of task stage (pre-learning rest as the reference level), with subject treated as a random effect. Black squares indicate significant coefficients (Wald test, P < 0.05).
+}
 
 \subsubsection{Hippocampal 2-Hz bursts are evoked by mnemonic cues}
+
+While hippocampal 2-Hz activity varies with overall mnemonic engagement of the participants, it remains unclear when these oscillatory bursts occur during the task. Because visual stimuli evoke strong \gp{erp} in the hippocampus, which manifest as broadband, non-oscillatory deflections in the \gp{lfp}, it is essential to separate these evoked responses from genuine oscillatory activity. Thus, to tease apart 2-Hz bursts from these evoked responses, we next analyze \gp{lfp} dynamics at different times relative to stimulus onset.
+
 \subsubsubsection{\gsp{erp} are modulated by mnemonic engagement}
-ERPs change throughout the task in the hippocampus.
+Previous work using hippocampal \g{deeg} has shown that the late \gp{erp} deflection occurring at 600 ms post stimulus onset (hP600) was deeper for familiar as opposed to novel stimuli (REF Barbeau). This suggests that hippocampal \gp{erp} are modulated by memory, which we first aimed at replicating in our behavioural task. For tis, we measured average \gp{lfp} after the onset of photographs in the viewing, learning and recalling phases of the memory task (Fig.~\ref{fig:erps-heatmap}). 
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_erps-heatmap.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:erps-heatmap}
+    \textbf{Hippocampal \gs{erp} across task sessions}
+    Group-level average hippocampal \gsp{lfp} aligned to the onset of viewing (left), learning (middle), or recall (right) photographic cues, with corresponding contact-level averages shown as a heatmap below. Contacts are sorted by the mean negative deflection in the recall condition for clarity. “Photograph 1” and “Photograph 2” denote the first and second paired associates presented during learning, respectively.
+}
+
+Consistently with earlier reports, the magnitude of the \g{erp} deflection (hP600) was greater after the onset of learning and recalling photographs than after viewing photographs (Fig.~\ref{fig:erps-taskStats}A). In addition, \g{erp} deflection was more pronounced for paired-associates with the best recall performance than those worst remembered, during the recall session (Fig.~\ref{fig:erps-taskStats}B). These results show that hippocampal \g{lfp} responses to visual stimuli are modulated by the mnemonic content of the photographs presented.
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_erps-taskStats.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:erps-taskStats}
+    \textbf{Hippocampal \gs{erp} deflection is modulated by mnemomic engagement}
+    (\textbf{A}) Group-level average hippocampal \gsp{lfp}s showing contrasts between viewing and learning or recall sessions. \gs{erp} have a greater deflection after the onset of learning and recalling photographs than after viewing photographs.
+    (\textbf{B}) Group-level average hippocampal \gsp{lfp}s showing contrasts between best and worst recalled associations during memory recall. Data were analyzed with cluster-based permutation tests; ***P < 0.001, **P < 0.01, *P < 0.05; n.s., not significant.
+}
 
 \subsubsubsection{Evoked oscillations follow \gsp{erp} deflection}
+
+
 Evoked 1-, 2- and 6-Hz amplitudes relate to mnemonic engagement. Correlation between evoked ERPs deflection and 2-Hz amplitude. 
 
 \subsubsection{Hippocampal 2-Hz oscillations are not evoked by motor activity}
