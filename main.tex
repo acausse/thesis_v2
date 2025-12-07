@@ -156,6 +156,10 @@
     plural=confidence intervals,
     shortplural=CIs
 ]{ci}{CI}{confidence interval}
+\newacronym[
+    plural=inter-spike intervals,
+    shortplural=ISIs
+]{isi}{ISI}{inter-spike interval}
 
 \glsadd{rem}
 \glsadd{sws}
@@ -179,6 +183,7 @@
 \glsadd{imf}
 \glsadd{ci}
 \glsadd{car}
+\glsadd{isi}
 
 % ----------------------------- Begin document -----------------------------
 \begin{document}
@@ -551,7 +556,7 @@ To assess whether 2-Hz was evoked by photographs onset, we measured wavelet spec
     (\textbf{D}) Median differences in evoked 1-Hz (left) and 6-Hz (right) amplitudes as in (B). Data were analyzed using two-sided paired permutation tests; ***P < 0.001, **P < 0.01, *P < 0.05; n.s., not significant.
 }
 
-Taken together, these results show that mnemonic cues trigger an early evoked response that evolves into a slower, sustained 2-Hz oscillation in the human hippocampus. To better link these two processes, we next measured the correlation between the magnitude of the \g{erp} deflection and the amplitude of the evoked oscillations at 1-, 2- and 6-Hz in the recall session. Interestingly, hippocampal macrocontacts with the most pronounced \g{erp} deflections also had the highest evoked 2-Hz, bot not 1- or 6-Hz amplitude (Fig.~\ref{fig:erps-correlations}).
+Taken together, these results show that mnemonic cues trigger an early evoked response that evolves into a slower, sustained 2-Hz oscillation in the human hippocampus. To better link these two processes, we next measured the correlation between the magnitude of the \g{erp} deflection and the amplitude of the evoked oscillations at 1-, 2- and 6-Hz in the recall session. Interestingly, hippocampal macrocontacts with the most pronounced \g{erp} deflections also had the highest evoked 2-Hz, but not 1- or 6-Hz amplitude (Fig.~\ref{fig:erps-correlations}).
 
 \begin{center}
     \includegraphics[width=\textwidth]{thefig_erps-correlations.png}
@@ -563,36 +568,119 @@ Taken together, these results show that mnemonic cues trigger an early evoked re
     Correlation between hippocampal \gs{erp} deflection and evoked oscillatory amplitudes at 1, 2, and 6 Hz during recall.
 }
 
-
 \subsubsection{Hippocampal 2-Hz oscillations are not evoked by motor activity}
+In rodents, theta power increases with locomotion, reflecting the acquisition of new sensory information during movement. Although locomotion is not a confounding factor in our associative memory task, we examined whether movement alone could elicit 2-Hz oscillations in humans. To do so, participants remained seated and performed repetitive foot movements (“stepping”) for 10 minutes, following a 10-minute eyes-closed rest period (Fig.~\ref{fig:stepping}A). Stepping provides a relevant control because the interval between consecutive foot movements is approximately 500 milliseconds (Fig.~\ref{fig:stepping}B). Across the three participants who showed a clear 2-Hz activity during learning, stepping did not significantly elicit 2-Hz oscillations (Fig.~\ref{fig:stepping}C-H).
 
-Methods: Stepping sessions. Results: three example contacts (PSDs) with clear 2-Hz in learning but not during stepping. Statistics on these three subjects.
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_stepping.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:stepping}
+    \textbf{Stepping movement does not elicit 2-Hz oscillations in the human hippocampus}
+    (\textbf{A–B}) After a 10-minute rest session, participants performed repetitive stepping movements with their feet while seated (A). Note the 500 millisecond period between two movement onsets (B). 
+    (\textbf{C–E}) 3D hippocampal volumes showing electrode contact locations (top) and corresponding \gsp{psd} (bottom) from three example participants.
+    (\textbf{F–H}) Estimation plots showing the median difference in 1-Hz (F), 2-Hz (G), and 6-Hz (H) oscillatory power during stepping and learning relative to their associated baseline rest sessions. Despite a modest trend, 2-Hz power is not significantly increased during stepping.
+}
 
-Note to myself: I could as well add a small control here, using viewing and post-viewing sessions when the participants hit the space bar (second image). Paired analysis by comparing the evoked amplitude after the first (no motor activity) and the second (motor activity) image seen in a row. It may be confounded by the short term memory effect but we dont expect this to elicit a massive 2-Hz.
+% Note to myself: I could as well add a small control here, using viewing and post-viewing sessions when the participants hit the space bar (second image). Paired analysis by comparing the evoked amplitude after the first (no motor activity) and the second (motor activity) image seen in a row. It may be confounded by the short term memory effect but we dont expect this to elicit a massive 2-Hz.
 
 % --------------- Section II: 2-Hz organizes neuronal and gamma activity in the HPC
 \section{Hippocampal neuronal activity is preferentially modulated at 2-Hz}
+Oscillations at 2 Hz can be observed in the hippocampal \gp{lfp}. These oscillations are transient, and selectively evoked by mnemonic cues. However, 2-Hz is a particularly slow rhythm in comparison to the timescale of the cellular (ensemble spiking activity) and local network (gamma oscillations) processes at play in the hippocampus (REF). To solve this apparent paradox, we next investigated whether 2-Hz oscillations modulate ensemble spiking and gamma activity locally within the hippocampus.
 
 % ---------- Subsection 1: Hippocampal neurons
 \subsection{Hippocampal neurons are paced at 2-Hz}
 \label{subsec:2Hz-neurons}
 
 \subsubsection{Basic firing properties of hippocampal neurons reveal 2-Hz rhythmicity}
-Methods: spike sorting and quality control. Results : firing rate distributions show that slow firing neurons constituted the biggest part of our dataset. Waveform classification: mainly broad spikes. So this looks more like pyramidal neurons. Autocorrelograms at 2-Hz. Inter-spike intervals at 500 ms.
+Using tetrode \gp{lfp} recordings, we were able to isolate single-neuron activity from the human hippocampus while participants were engaged in the associative memory task as well as watching a sitcom series (see Appendix~\ref{apdx:acquisition} for details on the datasets and Appendix~\ref{apdx:spike-sorting} for isolation of single-units). In the hippocampus, 211 neurons were identified from 18 participants. Because tetrodes protruded between the two deepest macrocontacts, neurons were mostly sampled from the medial parts of the hippocampus (Fig.~\ref{fig:hpc-neuronsBasic}A). The majority of neurons detected had a low firing rate, below 5 Hz (Fig.~\ref{fig:hpc-neuronsBasic}B) and broad spiking waveforms (Fig.~\ref{fig:hpc-neuronsBasic}C-E), consistent with the proportion of pyramidal neurons observed in the rodent hippocampus (REF). 
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_hpc-neuronsBasic.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:hpc-neuronsBasic}
+    \textbf{Basic properties of hippocampal neurons}
+    (\textbf{A}) 3D hippocampal volumes showing tetrode locations (black crosshairs).
+    (\textbf{B}) Mean firing rates of hippocampal neurons follow a log distribution, with most (73\%) firing below 5~Hz.
+    (\textbf{C}) Distribution of waveform features allowing to classify broad-spiking (BS, dark blue) and narrow-spiking (NS, dark red) hippocampal neurons.
+    (\textbf{D}) Average neuronal spike waveform of BS (blue) and NS (red). Shaded areas indicate mean ±~SEM. 
+    (\textbf{E}) Proportion of BS and NS neurons showing that the majority (81.5\%) of hippocampal neurons were classified as BS.
+}
+
+Next, we examined the rhythmic structure in spike trains by computing single-neuron autocorrelograms and \gp{isi} at slow timescales. Several hippocampal neurons displayed clear rhythmicity at 2 Hz (Fig.~\ref{fig:hpc-autocorrelograms}A-C), indicating that the hippocampal 2-Hz rhythm can also be detected directly at the level of single-neuron activity. These neurons showed typical properties of pyramidal cells: broad spikes and low firing rates (<5 Hz). One neuron exhibited 6-Hz rhythmicity (Fig.~\ref{fig:hpc-autocorrelograms}D), confirming that our experimental setup was capable of detecting higher-frequency rhythmic firing, although such cases were less common.
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_hpc-autocorrelograms.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:hpc-autocorrelograms}
+    \textbf{2-Hz rhythmicity of hippocampal neurons}
+    (\textbf{A–D}) Example hippocampal neurons exhibiting 2-Hz (A-C) and 6-Hz (D) rhythmicity.  
+    From left to right: mean spike waveform across tetrode channels; short- (millisecond) and long- (second) timescale spike autocorrelograms (ACGs); \gsp{psd}; and \gs{isi} distributions. Long ACGs were cropped at t=0 for clarity.
+}
 
 \subsubsection{Hippocampal neurons prefer 2-Hz oscillations}
-Methods: \gs{ppc} and phase randomization. Results: cycle-triggered average of population rate to illustrate co-modulation at 2-Hz. Example spike-phase distribution reveals preference at 2-Hz. Quantification of spike-phase coupling using PPC.
+\label{subsubsec:2Hz-ppc}
+If hippocampal neurons are entrained by the 2-Hz oscillation, their spike trains should preferentially lock to the 2-Hz phase than to the phase of other slow-frequency oscillations. We assessed this coupling by measuring \g{ppc} at 1-, 2- and 6-Hz using the \gp{imf} detected from the macrocontact adjacent to the tetrodes (c). The observed \g{ppc} values were then compared with a null distribution obtained by randomly permuting the phase of each \g{imf} in the Fourier domain (see Appendix~\ref{apdx:spike-field} for methodological details). This measure allowed us to compare coupling across frequencies while controlling for potential power-law confounds (REF). Single-neurons locking was higher for 2-Hz than 1- or 6-Hz oscillations in the hippocampus (Fig.~\ref{thefig_hpc-neuronsPPC}). Hence, this result confirms that the 2-Hz rhythm organizes single-neuron activity locally in the hippocampus. 
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_hpc-neuronsPPC.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:hpc-neuronsPPC}
+    \textbf{Hippocampal single-neurons preferentially lock to the phase of 2-Hz oscillations}
+    (\textbf{A}) Firing-phase histograms of an example neuron relative to 1-, 2-, and 6-Hz oscillations.
+    (\textbf{B}) Spike–phase consistency (z-score) differences between 1-Hz and 2- or 6-Hz oscillations (left) and between 2- and 6-Hz oscillations (right) across hippocampal neurons.
+    (\textbf{C}) Percentage of hippocampal neurons significantly coupled to 1-, 2-, or 6-Hz oscillations, defined by spike–phase consistency (\gs{ppc}) z-scores above 2 (left) or 5 (right).
+    (\textbf{D}) Proportion of hippocampal neurons preferring 1-, 2-, or 6-Hz oscillations. Data were analyzed using two-sided paired permutation tests; ***P < 0.001, **P < 0.01, *P < 0.05; n.s., not significant.
+}
 
 % ---------- Subsection 2: Hippocampal gamma
 \subsection{Hippocampal gamma oscillations are preferentially modulated at 2-Hz}
-\subsubsection{Gamma activity correlates with spiking activity}
-Methods: Detection of gamma activity (60-160 Hz). Results: Illustration of the correlation (CAR and bipolar referencing). Correlation with local VS distal gamma. 
-
 \subsubsection{Hippocampal gamma activity is preferentially coupled to 2-Hz phase}
-Methods: \gs{pac} with the modulation index and phase randomization. Results: cycle-triggered average of gamma activity to illustrate co-modulation at 2-Hz (with spikes). Example gamma-phase distribution reveals preference at 2-Hz. Quantification of phase-amplitude coupling using PAC. Control with leave one recording day out shows that the effect is not driven by one recording day. Gamma from the anterior and posterior hippocampi prefer 2-Hz (no gradient). 
+In rodents, gamma oscillations reflect the activity of local networks, namely the interaction between pyramidal neurons and interneurons in rodents (REF). They are tightly modulated by theta oscillations (REF), and this theta-gamma \g{pac} is crucial for memory acquisition and recall (REFS). Likewise, human hippocampal spiking correlates with local gamma-band (60 – 160 Hz) activity (see Appendix~\ref{apdx:spike2Gamma} and REFS). We then tested whether gamma-band activity was coupled to hippocampal 2-Hz. First, by measuring the average of gamma activity and population firing rate triggered by individual oscillatory cycles of 1-, 2- and 6-Hz oscillations, we showed clear entrainment of gamma activity at 2-Hz (Fig.~\ref{hpc-trigAvgs}). 
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_hpc-trigAvgs.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:hpc-trigAvgs}
+    \textbf{Illustration of gamma and neuronal spiking co-modulation at 2-Hz}
+    Average hippocampal \gsp{lfp}, instantaneous population firing rate, gamma amplitude, and corresponding spectrogram aligned to 1-Hz (left), 2-Hz (middle), and 6-Hz (right) oscillatory cycles in an example participant. This illustrates the modulation of local networks at 2-Hz.
+}
+
+We then quantified this relationship by measuring the coupling between local hippocampal gamma amplitude and the phase of 1-, 2- and 6-Hz oscillations, using the Kullback-Leibler divergence (see Appendix~\ref{apdx:crossFreq}). This measure of \g{pac} was then compared to \gp{imf} with randomly permuted phases, like we did in Chapter~\ref{subsubsec:2Hz-ppc}. 
+% @@@EXPLAIN FIGURE
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_hpc-pac.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:hpc-pac}
+    \textbf{Gamma activity coupling to hippocampal oscillations}
+    (\textbf{A}) Median differences in \gsp{pac} (z-score) for hippocampal gamma envelopes between 1-Hz and 2- or 6-Hz oscillations (left) and between 2- and 6-Hz oscillations (right).
+    (\textbf{B}) Estimation plots showing median \gsp{pac} (z-score) differences between 1-Hz and 2- or 6-Hz oscillations (left), and between 2- and 6-Hz oscillations (right) when coupling values were averaged per recording day.
+    (\textbf{C}) Percentage of hippocampal macrocontacts with gamma activity significantly coupled to 1-, 2-, or 6-Hz oscillations, defined by \gsp{pac} z-scores above 2 (top) or 5 (bottom).
+    (\textbf{D}) Proportion of hippocampal macrocontacts showing gamma-coupling preference for 1-, 2-, or 6-Hz oscillations.
+    (\textbf{E}) Leave-one-day-out analysis of oscillatory preference demonstrating that the 2-Hz preference is not driven by any single recording day.
+    Data were analyzed using two-sided paired permutation tests; ***P < 0.001, *P < 0.05; n.s., not significant.
+}
+
+% @@@ EXPLAIN ANTERO-POSTERIOR
+
+% @@@ FIG ANTERO-POSTERIOR
 
 \subsubsection{Holo-Hilbert amplitude modulation analysis confirms prevailing 2-Hz hippocampal modulation of gamma activity}
 Methods: \gs{hhsa} with illustration. Results: 2-Hz modulation prevails in the human hippocampus. 7-Hz oscillations dominated the mouse hippocampus.
+
+Conclusion: 2-Hz is fast enough to organize neuronal and gamma activity in the hippocampus. This result provides additional evidence that the 2-Hz oscillations is locally generated and not picked up by volume conduction (see Chapter XXX). 
 
 % --------------- Section III: 2-Hz organizes neuronal and gamma activity in the MTL
 \section{Hippocampal 2-Hz synchronizes neuronal activity across \gs{mtl} regions}
@@ -697,6 +785,7 @@ Limits: what happens out of the oscillatory bursts? Noise does not exist in phys
 \section{Data acquisition and preprocessing}
 \label{apdx:acquisition}
 \subsection{Participants}
+Add here a detailed table with different datasets used and for what 
 \subsection{Electrode models}
 \subsection{Co-registration and anatomical verification}
 \subsection{Neurophysiological recordings}
@@ -719,6 +808,7 @@ Here we will describe the optimization steps, final parameters of the masks used
 \subsection{Detection of gamma activity}
 
 \section{Cross-frequency analyses}
+\label{apdx:crossFreq}
 \subsection{\gs{pac} and phase randomization}
 \subsection{\gs{hhsa}}
 
@@ -726,13 +816,17 @@ Here we will describe the optimization steps, final parameters of the masks used
 \chapter{Appendix: Analysis of single-neuron activity}
 
 \section{Spike sorting and single-unit validation}
+\label{apdx:spike-sorting}
 \subsection{Automated pipeline}
 \subsection{Manual curation quality criteria}
 \subsection{Waveform classification}
 
 \section{Spike-field relationship}
+\label{apdx:spike-field}
 \subsection{\gs{ppc} and phase randomization}
 \subsection{Spike-gamma relationship}
+\label{apdx:spike2Gamma}
+Here it will as well be a result section to not overwhelm the reader in Chapter 2.
 
 % --------------- Appendix C: Hippocampal ripples and reactivation
 \chapter{Appendix: Hippocampal ripples and reactivation}

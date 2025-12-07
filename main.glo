@@ -20,6 +20,7 @@
 \glossaryentry{IMF?\glossentry{imf}|setentrycounter[]{page}"\glsnumberformat}{1}
 \glossaryentry{CI?\glossentry{ci}|setentrycounter[]{page}"\glsnumberformat}{1}
 \glossaryentry{CAR?\glossentry{car}|setentrycounter[]{page}"\glsnumberformat}{1}
+\glossaryentry{ISI?\glossentry{isi}|setentrycounter[]{page}"\glsnumberformat}{1}
 \glossaryentry{depth EEG?\glossentry{deeg}|setentrycounter[]{page}"\glsnumberformat}{10}
 \glossaryentry{LFP?\glossentry{lfp}|setentrycounter[]{page}"\glsnumberformat}{13}
 \glossaryentry{depth EEG?\glossentry{deeg}|setentrycounter[]{page}"\glsnumberformat}{13}
@@ -78,4 +79,14 @@
 \glossaryentry{ERP?\glossentry{erp}|setentrycounter[]{page}"\glsnumberformat}{25}
 \glossaryentry{ERP?\glossentry{erp}|setentrycounter[]{page}"\glsnumberformat}{26}
 \glossaryentry{ERP?\glossentry{erp}|setentrycounter[]{page}"\glsnumberformat}{26}
-\glossaryentry{MTL?\glossentry{mtl}|setentrycounter[]{page}"\glsnumberformat}{29}
+\glossaryentry{LFP?\glossentry{lfp}|setentrycounter[]{page}"\glsnumberformat}{29}
+\glossaryentry{LFP?\glossentry{lfp}|setentrycounter[]{page}"\glsnumberformat}{29}
+\glossaryentry{ISI?\glossentry{isi}|setentrycounter[]{page}"\glsnumberformat}{30}
+\glossaryentry{PPC?\glossentry{ppc}|setentrycounter[]{page}"\glsnumberformat}{31}
+\glossaryentry{IMF?\glossentry{imf}|setentrycounter[]{page}"\glsnumberformat}{31}
+\glossaryentry{PPC?\glossentry{ppc}|setentrycounter[]{page}"\glsnumberformat}{31}
+\glossaryentry{IMF?\glossentry{imf}|setentrycounter[]{page}"\glsnumberformat}{31}
+\glossaryentry{PAC?\glossentry{pac}|setentrycounter[]{page}"\glsnumberformat}{32}
+\glossaryentry{PAC?\glossentry{pac}|setentrycounter[]{page}"\glsnumberformat}{32}
+\glossaryentry{IMF?\glossentry{imf}|setentrycounter[]{page}"\glsnumberformat}{32}
+\glossaryentry{MTL?\glossentry{mtl}|setentrycounter[]{page}"\glsnumberformat}{34}
