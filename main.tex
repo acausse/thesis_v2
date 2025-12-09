@@ -643,7 +643,7 @@ If hippocampal neurons are entrained by the 2-Hz oscillation, their spike trains
 % ---------- Subsection 2: Hippocampal gamma
 \subsection{Hippocampal gamma oscillations are preferentially modulated at 2-Hz}
 \subsubsection{Hippocampal gamma activity is preferentially coupled to 2-Hz phase}
-In rodents, gamma oscillations reflect the activity of local networks, namely the interaction between pyramidal neurons and interneurons in rodents (REF). They are tightly modulated by theta oscillations (REF), and this theta-gamma \g{pac} is crucial for memory acquisition and recall (REFS). Likewise, human hippocampal spiking correlates with local gamma-band (60 – 160 Hz) activity (see Appendix~\ref{apdx:spike2Gamma} and REFS). We then tested whether gamma-band activity was coupled to hippocampal 2-Hz. First, by measuring the average of gamma activity and population firing rate triggered by individual oscillatory cycles of 1-, 2- and 6-Hz oscillations, we showed clear entrainment of gamma activity at 2-Hz (Fig.~\ref{hpc-trigAvgs}). 
+In rodents, gamma oscillations reflect the activity of local networks, namely the interaction between pyramidal neurons and interneurons (REF). First, we confirmed that neuronal spiking correlated with local gamma-band (60 – 160 Hz) activity in humans as well (see Appendix~\ref{apdx:spike2Gamma} and REFS). In addition, rodent gamma oscillations couples with theta (REF), and this theta-gamma \g{pac} is crucial for memory acquisition and recall (REFS). Consequently, we then tested whether gamma-band activity was coupled to hippocampal 2-Hz. By measuring the average of gamma activity and population firing rate triggered by individual oscillatory cycles of 1-, 2- and 6-Hz oscillations, we showed clear entrainment of gamma activity at 2-Hz (Fig.~\ref{hpc-trigAvgs}). 
 
 \begin{center}
     \includegraphics[width=\textwidth]{thefig_hpc-trigAvgs.png}
@@ -655,8 +655,7 @@ In rodents, gamma oscillations reflect the activity of local networks, namely th
     Average hippocampal \gsp{lfp}, instantaneous population firing rate, gamma amplitude, and corresponding spectrogram aligned to 1-Hz (left), 2-Hz (middle), and 6-Hz (right) oscillatory cycles in an example participant. This illustrates the modulation of local networks at 2-Hz.
 }
 
-We then quantified this relationship by measuring the coupling between local hippocampal gamma amplitude and the phase of 1-, 2- and 6-Hz oscillations, using the Kullback-Leibler divergence (see Appendix~\ref{apdx:crossFreq}). This measure of \g{pac} was then compared to \gp{imf} with randomly permuted phases, like we did in Chapter~\ref{subsubsec:2Hz-ppc}. 
-% @@@EXPLAIN FIGURE
+Next, we quantified this relationship by measuring the coupling between local hippocampal gamma amplitude and the phase of 1-, 2- and 6-Hz oscillations, using the Kullback-Leibler divergence (see Appendix~\ref{apdx:crossFreq}). This measure of \g{pac} was then compared to \gp{imf} with randomly permuted phases, like we did in Chapter~\ref{subsubsec:2Hz-ppc} with neuronal spiking activity. Gamma amplitude was significantly more coupled to 2- than 1- and 6-Hz phases (Fig.~\ref{hpc-pac}), which shows that 2-Hz oscillations also entrain gamma activity locally in the hippocampus.
 
 \begin{center}
     \includegraphics[width=\textwidth]{thefig_hpc-pac.png}
@@ -673,14 +672,38 @@ We then quantified this relationship by measuring the coupling between local hip
     Data were analyzed using two-sided paired permutation tests; ***P < 0.001, *P < 0.05; n.s., not significant.
 }
 
-% @@@ EXPLAIN ANTERO-POSTERIOR
+The antero-posterior axis of the human hippocampus is analogous to the dorso-ventral axis of the rodent hippocampus (REF) along which substantial histological, anatomical, and functional diversity has been reported (REF). Comparable differences between anterior and posterior subdivisions have also been described in humans (REF). Notably, the cellular layer is more compact in the posterior hippocampus which could produce a more organized dipole (REF) and potentially stronger slow oscillations. We therefore measured gamma coupling separately in the anterior and posterior hippocampus and found that gamma activity was more strongly coupled to the 2-Hz than to 1- or 6-Hz oscillations in both regions (Fig.~\ref{fig:hpc-antPost}A), despite weaker statistical power in the posterior hippocampus (Fig~\ref{fig:hpc-anatomy}C). \gp{lmem} analyses confirmed that gamma coupling to 2-Hz did not correlate with the antero-posterior position of the macrocontacts along the hippocampus (Fig.~\ref{fig:hpc-antPost}B).
 
-% @@@ FIG ANTERO-POSTERIOR
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_hpc-antPost.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:hpc-antPost}
+    \textbf{Anatomical gradients of gamma coupling to hippocampal slow oscillations}
+    (\textbf{A}) Top: Distribution of hippocampal macrocontacts along the antero–posterior axis, separating anterior (black) and posterior (gray) sites. Bottom: Median \gsp{pac} (z-score) differences between 1-Hz and 2- or 6-Hz oscillations across posterior (left) and anterior (right) contacts, showing a consistent 2-Hz preference in both regions. Data were analyzed using two-sided paired permutation tests; ***P < 0.001, *P < 0.05; n.s., not significant.
+    (\textbf{b}) Heatmap of $\beta$ coefficients from linear regression predicting \gsp{pac} (z-score) to 1-, 2-, or 6-Hz oscillations as a function of antero–posterior or medio–lateral macrocontact position. No coefficients reached significance.
+}
 
 \subsubsection{Holo-Hilbert amplitude modulation analysis confirms prevailing 2-Hz hippocampal modulation of gamma activity}
-Methods: \gs{hhsa} with illustration. Results: 2-Hz modulation prevails in the human hippocampus. 7-Hz oscillations dominated the mouse hippocampus.
+To further confirm that gamma activity is more strongly coupled to 2-Hz than to other slow-frequency oscillations —and to ensure that this result is not confounded by the band-pass filters used to extract gamma activity (REF)— we applied the \g{hhsa}. This method relies on \g{emd} and the Hilbert transform to identify rhythmicity in the instantaneous amplitude of \gp{imf}. Unlike conventional filtering-based approaches, \g{hhsa} is unsupervised and is robust to spurious \g{pac} introduced by linear filters (REF). A mathematical intuition on \g{hhsa} is provided in Appendix~\ref{apdx:crossFreq}. \G{hhsa} confirmed that the amplitude of gamma oscillations is predominantly modulated at 2-Hz (Fig.~\ref{fig:hhsa-stats}A,B), particularly at electrode contacts free from interictal discharges (Fig.~\ref{fig:hhsa-stats}C). Additional data from the mouse dorsal CA1 showed a clear modulation of gamma amplitude at 7-Hz, further validating the sensitivity of this method in detecting genuine cross-frequency coupling (Fig.~\ref{fig:hhsa-stats}E,D). 
 
-Conclusion: 2-Hz is fast enough to organize neuronal and gamma activity in the hippocampus. This result provides additional evidence that the 2-Hz oscillations is locally generated and not picked up by volume conduction (see Chapter XXX). 
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_hhsa-stats.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:hhsa-stats}
+    \textbf{Holo-Hilbert spectral analysis reveals gamma amplitude modulation by 2-Hz in the human hippocampus}
+    (\textbf{A}) Holospectrum averaged across time, \gp{imf}, and hippocampal macrocontacts (z-scored), showing preferential modulation of fast-frequency signals by 2-Hz oscillations in humans.
+    (\textbf{B}) Estimation plot showing mean differences in amplitude modulation between 1-Hz and 2- or 6-Hz oscillations across hippocampal macrocontacts.
+    (\textbf{C}) Estimation plot showing stronger 2-Hz versus 6-Hz modulation in contacts free of \gsp{ied} compared with those containing \gsp{ied}. (Unpaired test.)
+    (\textbf{D}) Holospectrum averaged over CA1 hippocampal contacts in mice, revealing preferential modulation of fast-frequency signals by ~7-Hz oscillations.
+    (\textbf{E}) Quantification of panel D using the same method as in panel B, showing dominant amplitude modulation at ~7 Hz in mice (n = 12 sessions, 6 mice).
+    Data were analyzed using two-sided paired permutation tests, except in (G), where an unpaired test was applied; ***P < 0.001; n.s., not significant.
+}
+
+Taken together, these results show that the hippocampal 2-Hz rhythm is fast enough to organize neuronal firing and gamma activity locally within the hippocampus. They also provide additional evidence that 2-Hz oscillations entrain local network computations and do not merely reflect volume conduction. 
 
 % --------------- Section III: 2-Hz organizes neuronal and gamma activity in the MTL
 \section{Hippocampal 2-Hz synchronizes neuronal activity across \gs{mtl} regions}
