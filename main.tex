@@ -537,7 +537,7 @@ Consistently with earlier reports, the magnitude of the \g{erp} deflection (hP60
 Should 2-Hz oscillations be important for mnemonic processing, they should occur after the onset of memory-relevant cues. Having characterized the early hippocampal response, we next asked whether 2-Hz oscillations appear once the hP600 \g{erp} has resolved, i.e., during the inter-stimulus interval (Fig.~\ref{fig:erps-exampleEvoked}).
 
 \begin{center}
-    \includegraphics[width=\textwidth]{thefig_erps-exampleEvoked.png}
+    \includegraphics[width=0.75\textwidth]{thefig_erps-exampleEvoked.png}
 \end{center}
 \captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
 \captionof{figure}{
@@ -618,7 +618,7 @@ Using tetrode \gp{lfp} recordings, we were able to isolate single-neuron activit
 Next, we examined the rhythmic structure in spike trains by computing single-neuron autocorrelograms and \gp{isi} at slow timescales. Several hippocampal neurons displayed clear rhythmicity at 2 Hz (Fig.~\ref{fig:hpc-autocorrelograms}A-C), indicating that the hippocampal 2-Hz rhythm can also be detected directly at the level of single-neuron activity. These neurons showed typical properties of pyramidal cells: broad spikes and low firing rates (<5 Hz). One neuron exhibited 6-Hz rhythmicity (Fig.~\ref{fig:hpc-autocorrelograms}D), confirming that our experimental setup was capable of detecting higher-frequency rhythmic firing, although such cases were less common.
 
 \begin{center}
-    \includegraphics[width=\textwidth]{thefig_hpc-autocorrelograms.png}
+    \includegraphics[width=0.75\textwidth]{thefig_hpc-autocorrelograms.png}
 \end{center}
 \captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
 \captionof{figure}{
@@ -745,7 +745,7 @@ Because epilepsy networks involve distributed brain regions, participants recrui
 The first question we addressed is whether 2-Hz oscillations could be observed in \g{mtl} \gp{lfp}, and how it compared with hippocampal 2 Hz. By computing the average of \g{mtl} \gp{lfp} triggered by the 2-Hz cycles detected in the hippocampus in an example subject, we revealed a clear propagation of 2-Hz oscillations across \g{mtl} structures (Fig.~\ref{fig:mtl-propagation2Hz}).
 
 \begin{center}
-    \includegraphics[width=\textwidth]{thefig_mtl-propagation2Hz.png}
+    \includegraphics[width=0.7\textwidth]{thefig_mtl-propagation2Hz.png}
 \end{center}
 \captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
 \captionof{figure}{
@@ -788,7 +788,7 @@ In other temporal cortices, 6-8-Hz oscillations dominated. We took advantage of 
 }
 
 \subsubsection{2-Hz oscillations are not directly evoked by mnemonic cues outside the hippocampus}
-If we can observe 2-Hz oscillations in extra-hippocampal \g{mtl} structures, were the mnemonic effects described in Chapter~\ref{subsubsec:hpc-2Hz-memory} specific to the  hippocampus? 
+As 2-Hz oscillations dominated in extra-hippocampal \g{mtl} structures, we further tested whether they were related to the onset of visual photographs. \Gp{erp} were clearly visible in the amygdala, but in contrast to the hippocampus, recalling photographs elicited weaker \g{erp} deflections than viewing photographs (Fig.~\ref{fig:amy-erps}A). In addition, there was no difference between the \gp{erp} evoked by best and worst recalled pairs (Fig.~\ref{fig:amy-erps}B).
 
 \begin{center}
     \includegraphics[width=\textwidth]{thefig_amy-erps.png}
@@ -801,11 +801,10 @@ If we can observe 2-Hz oscillations in extra-hippocampal \g{mtl} structures, wer
     (\textbf{B}) \gsp{erp} deflections are not different between best and worst recalled associations in the recall session.
 }
 
-\gsp{erp} deflection does not correlate with evoked 2-Hz bursts outside the hippocampus
-Measure evoked 1-, 2- and 6-Hz in other MTL and non-MTL regions. The measure of ERP deflections is adjusted to each region to match visual input. Correlation between ERP deflection and evoked 1-, 2- 6-Hz oscillations.
+Moreover, \gsp{erp} deflection did not correlate with evoked 2-Hz bursts outside the hippocampus (Fig.~\ref{mtl-erpsCorr}). Taken together, these results suggest that 2-Hz oscillations are preferentially evoked by mnemonic cues in the hippocampus. 
 
 \begin{center}
-    \includegraphics[width=\textwidth]{thefig_mtl-erpsCorr.png}
+    \includegraphics{thefig_mtl-erpsCorr.png}
 \end{center}
 \captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
 \captionof{figure}{
@@ -815,15 +814,38 @@ Measure evoked 1-, 2- and 6-Hz in other MTL and non-MTL regions. The measure of 
 }
 
 % ---------- Subsection 2: Neurons and gamma
-\subsection{\gs{mtl} neurons are paced at 2-Hz}
-\subsubsection{Basic firing properties of \gs{mtl} neurons reveal 2-Hz rhythmicity}
-Results : Autocorrelograms at 2-Hz. Inter-spike intervals at 500 ms in the MTL. Example neuron in the non-MTL to show we can easily find 6-Hz rhythmicity in the non-MTL.
+\subsection{\gs{mtl} local activity is paced by hippocampal 2-Hz}
+After having observed the presence of 2-Hz oscillations in \g{mtl} \gp{lfp}, we tested whether local activity in the \g{mtl} (single-neurons and gamma) was also entrained by hippocampal 2-Hz.
 
-\subsubsection{\gs{mtl} neurons prefer 2-Hz oscillations in the hippocampus}
-Results: cycle-triggered average of population rate in the EC and HPC to illustrate co-modulation at 2-Hz in these two example structures. Example spike-phase distribution reveals preference at 2-Hz of EC neurons. Quantification of spike-phase coupling using PPC in the MTL. \gsp{lmem} showing that MTL gamma is better modulated at 2-Hz than non-MTL gamma.
+\subsubsection{\gs{mtl} neurons are paced at 2-Hz}
+As in the hippocampus (Fig.~\ref{fig:hpc-autocorrelograms}), single-neuron spike trains across \g{mtl} regions exhibited significant 2-Hz rhythmicity (Fig.~\ref{fig:mtl-autocorrelograms}; n = 46 total extra-hippocampal \g{mtl} neurons). In contrast, some neurons recorded outside the \g{mtl} (e.g., superior temporal cortex) displayed 6-Hz rhythmicity (Fig.~\ref{fig:mtl-autocorrelograms}, bottom row). 
 
-\subsection{Hippocampal 2-Hz synchronizes \gs{mtl} gamma oscillations}
-Methods: distal PAC. Results: cycle-triggered average of gamma activity in the MTL. Illustration of phase-amplitude coupling across the MTL. \g{mtl} gamma activity is preferentially coupled to hippocampal 2-Hz phase = quantification of MTL preference for 2-Hz oscillations. Phase synchronization is higher during learning and recalling than viewing sessions.
+\begin{center}
+    \includegraphics[width=0.75\textwidth]{thefig_mtl-autocorrelograms.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:mtl-autocorrelograms}
+    \textbf{2-Hz rhythmicity of \gs{mtl} neurons}
+    Example neurons recorded from \gs{mtl} tetrodes exhibiting 2-Hz rhythmicity, compared with a neuron recorded in the superior temporal cortex showing 6-Hz rhythmicity (bottom). From left to right: mean spike waveform across tetrode channels; short- (millisecond) and long- (second) timescale spike autocorrelograms (ACGs); \gsp{psd}; and \gs{isi} distributions. Long-timescale autocorrelograms (ACGs) are cropped at \(t = 0\) for clarity.
+}
+
+Moreover, \g{mtl} single-neurons better locked to hippocampal 2-Hz than 1- or 6-Hz oscillatory phase (Fig.~\ref{fig:mtl-neuronsPPC}).
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_mtl-neuronsPPC.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:mtl-neuronsPPC}
+    \textbf{MTL neurons preferentially couple to the phase of hippocampal 2-Hz oscillations}
+    (\textbf{A}) Firing-phase histograms of an example entorhinal cortex (EC) neuron relative to 1-, 2-, and 6-Hz hippocampal oscillations.
+    (\textbf{B}) Median differences in pairwise spike–phase consistency (\gsp{ppc}, z-score) between hippocampal 1-Hz and 2- or 6-Hz rhythms for \gs{mtl} neurons.
+    (\textbf{C}) Percentage of \gs{mtl} neurons preferentially coupled to 1-, 2-, or 6-Hz hippocampal oscillations.
+}
+
+\subsubsection{Hippocampal 2-Hz synchronizes \gs{mtl} gamma oscillations}
+Methods: distal PAC. Results: cycle-triggered average of gamma activity in the MTL. Illustration of phase-amplitude coupling across the MTL. \g{mtl} gamma activity is preferentially coupled to hippocampal 2-Hz phase = quantification of MTL preference for 2-Hz oscillations. \gsp{lmem} showing that MTL gamma is better modulated at 2-Hz than non-MTL gamma. Phase synchronization is higher during learning and recalling than viewing sessions.
 
 Transition to Chapter 4: online => offline
 
