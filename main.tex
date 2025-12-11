@@ -99,6 +99,8 @@
 \newacronym{ppc}{PPC}{pairwise-phase consistency}
 \newacronym{swr}{SWR}{sharp-wave ripple}
 \newacronym{fmri}{fMRI}{functional magnetic resonance imaging}
+\newacronym{mri}{MRI}{magnetic resonance imaging}
+\newacronym{dwmri}{DW-MRI}{diffusion-weighted MRI}
 \newacronym{umap}{UMAP}{uniform manifold approximation and projection}
 \newacronym{isomap}{ISOMAP}{isometric mapping}
 \newacronym{car}{CAR}{common-average reference}
@@ -173,6 +175,8 @@
 \glsadd{hhsa}
 \glsadd{swr}
 \glsadd{fmri}
+\glsadd{mri}
+\glsadd{dwmri}
 \glsadd{meg}
 \glsadd{ecog}
 \glsadd{umap}
@@ -184,6 +188,7 @@
 \glsadd{ci}
 \glsadd{car}
 \glsadd{isi}
+
 
 % ----------------------------- Begin document -----------------------------
 \begin{document}
@@ -374,7 +379,7 @@ We confirmed this observation by applying spectral parameterization (REF; see Ap
 \captionof{figure}{
     \label{fig:hpc-power_acrossFreqs}
     \textbf{2-Hz oscillations dominate in the human hippocampus}
-    (\textbf{A}) \gp{psd} corrected for the power law and averaged across hippocampal macrocontacts free of \gp{ied}. Shaded areas indicate mean ±~SEM. 
+    (\textbf{A}) \gp{psd} corrected for the power law and averaged across hippocampal macrocontacts free of \gp{ied}. Shaded areas indicate mean $\pm$~SEM. 
     (\textbf{B}) Estimation plots showing median differences between corrected 1-, 2-, and 6-Hz peak power (left), and between 2-Hz and 6-Hz peak power (right). 
     (\textbf{C}) Distribution showing positive 2-Hz/6-Hz peak power ratios in hippocampal contacts. Data were analyzed by two-sided paired permutation tests; ***P < 0.001.
 }
@@ -420,7 +425,7 @@ Hippocampal pyramidal cells are arranged in a well-defined laminar structure, wh
     \label{fig:phaseReversal}
     \textbf{Phase reversal of hippocampal 2-Hz oscillations}
     (\textbf{A}) 3D hippocampal volumes showing three linearly arranged recording contacts from the same electrode shaft (“Hpc 1a, 1b, and 1c”).
-    (\textbf{B}) Average \g{lfp} traces aligned to hippocampal 2-Hz oscillatory peaks, showing polarity reversal across adjacent contacts. Shaded areas indicate mean ±~SEM.
+    (\textbf{B}) Average \g{lfp} traces aligned to hippocampal 2-Hz oscillatory peaks, showing polarity reversal across adjacent contacts. Shaded areas indicate mean $\pm$~SEM.
     (\textbf{C}) Heatmap of average phase differences between the three contacts.
 }
 
@@ -471,7 +476,7 @@ To investigate other factors that may impact the detectability of these slower o
 Across participants, hippocampal \gp{lfp} revealed a prominent 2-Hz oscillation that dominated other slow rhythms and occurred in transient bursts. This rhythm showed a clear laminar phase reversal and was strongest in contacts free of \gsp{ied}, suggesting that it is a physiological rhythm. These properties indicate that hippocampal 2-Hz could be a good candidate oscillation for comparison with rodent hippocampal theta. Hippocampal theta in rodents increases during exploratory behaviour, and during memory encoding and recall (REF). In rabbits, bats and cats it is also tightly linked with sensory acquisition and is thus considered a key mechanism of active sensing (REFS). This raises two questions for the comparison with human hippocampal oscillations: does hippocampal 2-Hz also increase during memory encoding and recall, and is it similarly evoked by memory-relevant cues?  
 
 \subsubsection{Hippocampal 2-Hz power increase with mnemonic engagement}
-
+\label{subsubsec:hpc-2Hz-memory}
 To address this question we compared the changes in oscillatory power while participants were engaged in the associative memory task presented in Chapter~\ref{chap:behaviour}. Focussing on hippocampal macrocontacts free of \gp{ied}, we observed that 2-Hz oscillations exhibited significantly greater power during both learning and recall than during resting or viewing sessions (Fig.~\ref{fig:dep-powerTask-controls}; learning, P < 0.001; recalling, P = 0.006; paired permutation tests compared to pre-learning rest). 
 
 \begin{center}
@@ -512,7 +517,7 @@ Previous work using hippocampal \g{deeg} has shown that the late \gp{erp} deflec
 \captionof{figure}{
     \label{fig:erps-heatmap}
     \textbf{Hippocampal \gs{erp} across task sessions}
-    Group-level average hippocampal \gsp{lfp} aligned to the onset of viewing (left), learning (middle), or recall (right) photographic cues, with corresponding contact-level averages shown as a heatmap below. Contacts are sorted by the mean negative deflection in the recall condition for clarity. “Photograph 1” and “Photograph 2” denote the first and second paired associates presented during learning, respectively. Shaded areas indicate mean ± SEM.
+    Group-level average hippocampal \gsp{lfp} aligned to the onset of viewing (left), learning (middle), or recall (right) photographic cues, with corresponding contact-level averages shown as a heatmap below. Contacts are sorted by the mean negative deflection in the recall condition for clarity. “Photograph 1” and “Photograph 2” denote the first and second paired associates presented during learning, respectively. Shaded areas indicate mean $\pm$~SEM.
 }
 
 Consistently with earlier reports, the magnitude of the \g{erp} deflection (hP600) was greater after the onset of learning and recalling photographs than after viewing photographs (Fig.~\ref{fig:erps-taskStats}A). In addition, \g{erp} deflection was more pronounced for paired-associates with the best recall performance than those worst remembered, during the recall session (Fig.~\ref{fig:erps-taskStats}B). These results show that hippocampal \g{lfp} responses to visual stimuli are modulated by the mnemonic content of the photographs presented.
@@ -525,7 +530,7 @@ Consistently with earlier reports, the magnitude of the \g{erp} deflection (hP60
     \label{fig:erps-taskStats}
     \textbf{Hippocampal \gs{erp} deflections are modulated by mnemomic engagement}
     (\textbf{A}) Group-level average hippocampal \gsp{lfp} showing contrasts between viewing and learning or recall sessions. \gs{erp} have a greater deflection after the onset of learning and recalling photographs than after viewing photographs.
-    (\textbf{B}) Group-level average hippocampal \gsp{lfp} showing contrasts between best and worst recalled associations during memory recall. Shaded areas indicate mean ± SEM. Data were analyzed with cluster-based permutation tests; ***P < 0.001, **P < 0.01, *P < 0.05; n.s., not significant.
+    (\textbf{B}) Group-level average hippocampal \gsp{lfp} showing contrasts between best and worst recalled associations during memory recall. Shaded areas indicate mean $\pm$~SEM. Data were analyzed with cluster-based permutation tests; ***P < 0.001, **P < 0.01, *P < 0.05; n.s., not significant.
 }
 
 \subsubsubsection{Hippocampal 2-Hz is an evoked oscillation and follows the \gsp{erp}}
@@ -606,7 +611,7 @@ Using tetrode \gp{lfp} recordings, we were able to isolate single-neuron activit
     (\textbf{A}) 3D hippocampal volumes showing tetrode locations (black crosshairs).
     (\textbf{B}) Mean firing rates of hippocampal neurons follow a log distribution, with most (73\%) firing below 5~Hz.
     (\textbf{C}) Distribution of waveform features allowing to classify broad-spiking (BS, dark blue) and narrow-spiking (NS, dark red) hippocampal neurons.
-    (\textbf{D}) Average neuronal spike waveform of BS (blue) and NS (red). Shaded areas indicate mean ±~SEM. 
+    (\textbf{D}) Average neuronal spike waveform of BS (blue) and NS (red). Shaded areas indicate mean $\pm$~SEM. 
     (\textbf{E}) Proportion of BS and NS neurons showing that the majority (81.5\%) of hippocampal neurons were classified as BS.
 }
 
@@ -643,7 +648,7 @@ If hippocampal neurons are entrained by the 2-Hz oscillation, their spike trains
 % ---------- Subsection 2: Hippocampal gamma
 \subsection{Hippocampal gamma oscillations are preferentially modulated at 2-Hz}
 \subsubsection{Hippocampal gamma activity is preferentially coupled to 2-Hz phase}
-In rodents, gamma oscillations reflect the activity of local networks, namely the interaction between pyramidal neurons and interneurons (REF). First, we confirmed that neuronal spiking correlated with local gamma-band (60 – 160 Hz) activity in humans as well (see Appendix~\ref{apdx:spike2Gamma} and REFS). In addition, rodent gamma oscillations couples with theta (REF), and this theta-gamma \g{pac} is crucial for memory acquisition and recall (REFS). Consequently, we then tested whether gamma-band activity was coupled to hippocampal 2-Hz. By measuring the average of gamma activity and population firing rate triggered by individual oscillatory cycles of 1-, 2- and 6-Hz oscillations, we showed clear entrainment of gamma activity at 2-Hz (Fig.~\ref{hpc-trigAvgs}). 
+In rodents, gamma oscillations reflect the activity of local networks, namely the interaction between pyramidal neurons and interneurons (REF). First, we confirmed that neuronal spiking correlated with local gamma-band (60 – 160 Hz) activity in humans as well (see Appendix~\ref{apdx:spike2Gamma} and REFS). In addition, rodent gamma oscillations couples with theta (REF), and this theta-gamma \g{pac} is crucial for memory acquisition and recall (REFS). Consequently, we then tested whether gamma-band activity was coupled to hippocampal 2-Hz. By measuring the average of gamma activity and population firing rate triggered by individual oscillatory cycles of 1-, 2- and 6-Hz oscillations, we showed clear entrainment of gamma activity at 2-Hz (Fig.~\ref{fig:hpc-trigAvgs}). 
 
 \begin{center}
     \includegraphics[width=\textwidth]{thefig_hpc-trigAvgs.png}
@@ -655,7 +660,7 @@ In rodents, gamma oscillations reflect the activity of local networks, namely th
     Average hippocampal \gsp{lfp}, instantaneous population firing rate, gamma amplitude, and corresponding spectrogram aligned to 1-Hz (left), 2-Hz (middle), and 6-Hz (right) oscillatory cycles in an example participant. This illustrates the modulation of local networks at 2-Hz.
 }
 
-Next, we quantified this relationship by measuring the coupling between local hippocampal gamma amplitude and the phase of 1-, 2- and 6-Hz oscillations, using the Kullback-Leibler divergence (see Appendix~\ref{apdx:crossFreq}). This measure of \g{pac} was then compared to \gp{imf} with randomly permuted phases, like we did in Chapter~\ref{subsubsec:2Hz-ppc} with neuronal spiking activity. Gamma amplitude was significantly more coupled to 2- than 1- and 6-Hz phases (Fig.~\ref{hpc-pac}), which shows that 2-Hz oscillations also entrain gamma activity locally in the hippocampus.
+Next, we quantified this relationship by measuring the coupling between local hippocampal gamma amplitude and the phase of 1-, 2- and 6-Hz oscillations, using the Kullback-Leibler divergence (see Appendix~\ref{apdx:crossFreq}). This measure of \g{pac} was then compared to \gp{imf} with randomly permuted phases, like we did in Chapter~\ref{subsubsec:2Hz-ppc} with neuronal spiking activity. Gamma amplitude was significantly more coupled to 2- than 1- and 6-Hz phases (Fig.~\ref{fig:hpc-pac}), which shows that 2-Hz oscillations also entrain gamma activity locally in the hippocampus.
 
 \begin{center}
     \includegraphics[width=\textwidth]{thefig_hpc-pac.png}
@@ -707,7 +712,21 @@ Taken together, these results show that the hippocampal 2-Hz rhythm is fast enou
 
 % --------------- Section III: 2-Hz organizes neuronal and gamma activity in the MTL
 \section{Hippocampal 2-Hz synchronizes neuronal activity across \gs{mtl} regions}
-In rodents, theta oscillations aer not only observed in the hippocampus but also synchronizes neuronal activity in various, distributed brain regions including the entorhinal cortex, amygdala, prefrontal cortex, medial septum, and locus coeruleus (REFS). Because epilepsy also involves distributed brain regions, participants recruited in this study had electrodes targeting other MTL regions (e.g., entorhinal cortex) and areas outside the MTL (e.g., temporal cortices) (Fig.~\ref{fig:mtl-anatomy}). These recordings allowed us to assess whether 2-Hz oscillations also organized neuronal firing and gamma activity in other, partner structures of the temporal lobe.
+In rodents, theta oscillations synchronize neuronal activity in various, distributed brain regions including the entorhinal cortex, amygdala, prefrontal cortex, medial septum, and locus coeruleus (REFS). In humans, the \g{mtl} shares dense anatomical connections with the hippocampus (REF), making it a suitable candidate for functional connectivity at 2 Hz. To illustrate this, we used structural data available online in open access (REF Škoch) and obtained from \g{dwmri} in 88 human participants. Because of the visual nature of our task, we focussed on the connectivity of the hippocampus with regions located along the ventral visual stream: \g{mtl}, temporal and occipital cortices. The hippocampus showed preferential connectivity with the entorhinal and parahippocampal cortices, followed by amygdala, temporal pole and fusiform gyrus (Fig.~\ref{fig:structural-connectivity}), confirming the relevance of \g{mtl} structures to study functional connectivity with the hippocampus at 2 Hz.
+
+\begin{center}
+    \includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{thefig_structural-connectivity.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:structural-connectivity}
+    \textbf{Hippocampal connectivity with temporal and occipital regions}
+    (\textbf{A}) Average structural connectivity derived from \gs{dwmri} data (REF) showing the mean connectivity value between \gs{mtl}, temporal cortex and occipital cortex regions. Mean connectivity is represented by the width of the edges of the graph, and is thresholded at 0.02 for simplicity.
+    (\textbf{B} and \textbf{C}) Violin plot showing the distribution of connectivity values between the right (B) and left (C) hippocampi and all other regions presented in A. For clarity, only ipsilateral connections are displayed. The red vertical line indicates the threshold used in (A).
+    (\textbf{D}) Connectivity between contralateral hippocampi was modest. 
+}
+
+Because epilepsy networks involve distributed brain regions, participants recruited in this study had electrodes targeting other \g{mtl} regions (entorhinal cortex, amygdala, parahippocampal cortex) and areas outside the \g{mtl} (e.g., temporal cortices) (Fig.~\ref{fig:mtl-anatomy}). These recordings thus allowed us to assess whether 2-Hz oscillations organized neuronal firing and gamma activity in other, partner structures of the temporal lobe.
 
 \begin{center}
     \includegraphics[width=\textwidth]{thefig_mtl-anatomy.png}
@@ -720,26 +739,82 @@ In rodents, theta oscillations aer not only observed in the hippocampus but also
     (\textbf{B}) 3D projection of electrode contacts on the MNI brain. Left and right hemispheres are expanded for clarity (axes: Post–Ant, posterior–anterior; Med–Lat, medio–lateral; Sup–Inf, superior–inferior).
 }
 
-% ---------- Subsection 1: MTL neurons
+% ---------- Subsection 1: LFPs
 \subsection{2-Hz oscillations are preferentially observed in the \gs{mtl}}
 \subsubsection{2-Hz power dominates in the \gs{mtl} and particularly in the hippocampus}
-The human hippocampus is anatomically connected with the  
+The first question we addressed is whether 2-Hz oscillations could be observed in \g{mtl} \gp{lfp}, and how it compared with hippocampal 2 Hz. By computing the average of \g{mtl} \gp{lfp} triggered by the 2-Hz cycles detected in the hippocampus in an example subject, we revealed a clear propagation of 2-Hz oscillations across \g{mtl} structures (Fig.~\ref{fig:mtl-propagation2Hz}).
 
-The first question we addressed is whether 2-Hz oscillations could be observed in the \gp{lfp} of 
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_mtl-propagation2Hz.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:mtl-propagation2Hz}
+    \textbf{Trigger average of \gs{mtl} \gsp{lfp} by hippocampal 2-Hz}, illustrating entrainment of \gs{mtl} \gsp{lfp} at 2 Hz and showing that 2-Hz oscillations propagate across \g{mtl} structures.
+}
 
-Cycle-triggered average of LFPs show that 2-Hz oscillations propagate in the MTL. PSDs across the MTL and non-MTL contacts free of IEDs. 2-Hz vs 6-Hz power ratio.
+Next, to quantify this phenomenon, we measured \gp{psd} in macrocontacts located across \g{mtl} and non-MTL structures. Extra-hippocampal \g{mtl} regions had significantly higher power at 2 Hz than 6 Hz, whereas non-MTL temporal cortices were dominated by 6-8-Hz oscillations (Fig.~\ref{mtl-power}).
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_mtl-power.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:mtl-power}
+    \textbf{Slow-frequency oscillations across the temporal lobe}
+    (\textbf{A}) \gsp{psd} corrected for the power law and averaged across hippocampal (HPC), extra-hippocampal \gs{mtl} (extra-HPC MTL), and non-MTL temporal macrocontacts free of \gsp{ied}. Shaded areas indicate mean $\pm$~SEM.
+    (\textbf{B}) Estimation plots showing mean differences between corrected 2-Hz and 6-Hz peak power in the regions shown in panel A.
+    (\textbf{C}) Estimation plots showing higher 2-Hz/6-Hz power ratios in extra-HPC \gs{mtl} and hippocampal contacts compared with non-MTL regions (left), and higher 2-Hz/6-Hz power ratios in hippocampal compared with extra-HPC \gs{mtl} regions (right).
+    Data were analyzed using two-sided paired permutation tests; ***P < 0.001, **P < 0.01.
+}
+
+These results show that despite a stronger prevalence of 2-Hz oscillations in the hippocampus, this oscillation also dominates \gp{lfp} in \g{mtl} structures, but not in other temporal cortices.
 
 \subsubsection{Prominent 6-8Hz oscillations in the non-MTL were detected using \gs{tmemd}}
-IMF PSDs in the MTL and non-MTL with example of detected 6-8-Hz bursts in the non-MTL.
+In other temporal cortices, 6-8-Hz oscillations dominated. We took advantage of this clear distinction between 2-Hz and 6-8-Hz oscillations to verify that the \g{tmemd} algorithm was able to detect 6-Hz oscillations there. Using recordings from the superior temporal cortex, we showed that 6-8-Hz could be reliably detected across macrocontacts, confirming the viability of the \g{tmemd} method in our dataset (Fig.~\ref{fig:nonmtl-tmemd}).
+
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_nonmtl-tmemd.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:nonmtl-tmemd}
+    \textbf{Slow-frequency oscillatory components in the Superior Temporal Cortex}
+    (\textbf{A}) \gsp{lfp} signals recorded from Superior Temporal Cortex (STC) contacts revealed four oscillatory components detected by \gs{tmemd}, with peak frequencies near 1~Hz (peak [80\% power band, PB]: 1.0 [0.45–1.50]~Hz), 2~Hz (2.4 [0.95–3.75]~Hz), 4~Hz (4.3 [2.50–6.00]~Hz), and 8~Hz (8.4 [4.75–12.00]~Hz).  
+    Left: Example STC wide-band \gsp{lfp} trace with its constituent \gp{imf}.  
+    Right: Corresponding \gsp{psd}.
+    (\textbf{B}) Heatmaps showing power distributions of 1-, 2-, 4-, and 8-Hz \gp{imf} across all STC contacts.
+    (\textbf{C}) Average \gsp{psd} across STC contacts, normalized to the maximal 2-Hz power in the hippocampus for comparison with Fig.~\ref{fig:hpc-imfs} (thick lines denote 80\% power bands).
+}
 
 \subsubsection{2-Hz oscillations are not directly evoked by mnemonic cues outside the hippocampus}
-\subsubsubsection{\gsp{erp} deflections in \gs{mtl} and non-MTL regions}
-ERPs become bigger with familiarity only in the hippocampus.
+If we can observe 2-Hz oscillations in extra-hippocampal \g{mtl} structures, were the mnemonic effects described in Chapter~\ref{subsubsec:hpc-2Hz-memory} specific to the  hippocampus? 
 
-\subsubsubsection{\gsp{erp} deflection does not correlate with evoked 2-Hz bursts outside the hippocampus}
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_amy-erps.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:amy-erps}
+    \textbf{\gsp{erp} in the amygdala}
+    (\textbf{A}) \gsp{erp} deflections are weaker after the onset of recall as compared to viewing photographs.
+    (\textbf{B}) \gsp{erp} deflections are not different between best and worst recalled associations in the recall session.
+}
+
+\gsp{erp} deflection does not correlate with evoked 2-Hz bursts outside the hippocampus
 Measure evoked 1-, 2- and 6-Hz in other MTL and non-MTL regions. The measure of ERP deflections is adjusted to each region to match visual input. Correlation between ERP deflection and evoked 1-, 2- 6-Hz oscillations.
 
-% ---------- Subsection 2: MTL gamma
+\begin{center}
+    \includegraphics[width=\textwidth]{thefig_mtl-erpsCorr.png}
+\end{center}
+\captionsetup{type=figure, aboveskip=6pt, belowskip=14pt}
+\captionof{figure}{
+    \label{fig:mtl-erpsCorr}
+    \textbf{ERP deflection does not correlate with evoked 2-Hz bursts outside the hippocampus}
+    (\textbf{A–C}) Correlations between \gsp{erp} deflection and evoked 1-, 2-, and 6-Hz amplitudes during recall in the entorhinal cortex (A), parahippocampal cortex (B), and amygdala (C). No correlation reached significance (n.s.).
+}
+
+% ---------- Subsection 2: Neurons and gamma
 \subsection{\gs{mtl} neurons are paced at 2-Hz}
 \subsubsection{Basic firing properties of \gs{mtl} neurons reveal 2-Hz rhythmicity}
 Results : Autocorrelograms at 2-Hz. Inter-spike intervals at 500 ms in the MTL. Example neuron in the non-MTL to show we can easily find 6-Hz rhythmicity in the non-MTL.
