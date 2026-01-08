@@ -19,8 +19,13 @@
 *.tmp
 *.bak
 
-# Ignore generated PDF (optional — if you don't want to track the final PDF)
-# *.pdf
+# Ignore image and document binaries
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.eps
+*.svg
 
 # VS Code settings (optional, user-specific)
 .vscode/
